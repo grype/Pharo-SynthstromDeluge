@@ -1,0 +1,99 @@
+Class {
+	#name : #DelugePatchCable,
+	#superclass : #DelugeObject,
+	#instVars : [
+		'amount',
+		'destination',
+		'source'
+	],
+	#category : #'Synthstrom-Deluge'
+}
+
+{ #category : #accessing }
+DelugePatchCable class >> xmlElementName [
+	^ 'patchCable'
+]
+
+{ #category : #accessing }
+DelugePatchCable >> amount [
+	^ amount
+]
+
+{ #category : #accessing }
+DelugePatchCable >> amount: anObject [
+	amount := anObject
+]
+
+{ #category : #'magritte description' }
+DelugePatchCable >> descriptionAmount [
+	<magritteDescription>
+	^ MAStringDescription new
+		accessor: #amount;
+		label: 'amount';
+		priority: 1;
+		beXmlElement;
+		yourself
+]
+
+{ #category : #'magritte description' }
+DelugePatchCable >> descriptionDestination [
+	<magritteDescription>
+	^ MAStringDescription new
+		accessor: #destination;
+		label: 'destination';
+		priority: 3;
+		beXmlElement;
+		yourself
+]
+
+{ #category : #'magritte description' }
+DelugePatchCable >> descriptionRangeAdjustable [
+	<magritteDescription>
+	^ MANumberDescription new
+		accessor: #rangeAdjustable;
+		label: 'rangeAdjustable';
+		priority: 1;
+		beXmlElement;
+		yourself
+]
+
+{ #category : #'magritte description' }
+DelugePatchCable >> descriptionSource [
+	<magritteDescription>
+	^ MAStringDescription new
+		accessor: #source;
+		label: 'source';
+		priority: 2;
+		beXmlElement;
+		yourself
+]
+
+{ #category : #accessing }
+DelugePatchCable >> destination [
+	^ destination
+]
+
+{ #category : #accessing }
+DelugePatchCable >> destination: anObject [
+	destination := anObject
+]
+
+{ #category : #accessing }
+DelugePatchCable >> rangeAdjustable [
+	^ rangeAdjustable
+]
+
+{ #category : #accessing }
+DelugePatchCable >> rangeAdjustable: anObject [
+	rangeAdjustable := anObject
+]
+
+{ #category : #accessing }
+DelugePatchCable >> source [
+	^ source
+]
+
+{ #category : #accessing }
+DelugePatchCable >> source: anObject [
+	source := anObject
+]

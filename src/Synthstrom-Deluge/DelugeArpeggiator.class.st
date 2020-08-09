@@ -6,12 +6,58 @@ Class {
 		'numOctaves',
 		'syncLevel'
 	],
+	#classVars : [
+		'ModeBoth',
+		'ModeDown',
+		'ModeOff',
+		'ModeUp'
+	],
 	#category : #'Synthstrom-Deluge'
 }
 
 { #category : #accessing }
+DelugeArpeggiator class >> modeBoth [
+	^ ModeBoth ifNil: [ ModeBoth := 'both' ]
+]
+
+{ #category : #accessing }
+DelugeArpeggiator class >> modeDown [
+	^ ModeDown ifNil: [ ModeDown := 'down' ]
+]
+
+{ #category : #accessing }
+DelugeArpeggiator class >> modeOff [
+	^ ModeOff ifNil: [ ModeOff := 'off' ]
+]
+
+{ #category : #accessing }
+DelugeArpeggiator class >> modeUp [
+	^ ModeUp ifNil: [ ModeUp := 'up' ]
+]
+
+{ #category : #accessing }
 DelugeArpeggiator class >> xmlElementName [
 	^ 'arpeggiator'
+]
+
+{ #category : #configuring }
+DelugeArpeggiator >> beModeBoth [
+	mode := self class modeBoth
+]
+
+{ #category : #configuring }
+DelugeArpeggiator >> beModeDown [
+	mode := self class modeDown
+]
+
+{ #category : #configuring }
+DelugeArpeggiator >> beModeOff [
+	mode := self class modeOff
+]
+
+{ #category : #configuring }
+DelugeArpeggiator >> beModeUp [
+	mode := self class modeUp
 ]
 
 { #category : #'magritte description' }

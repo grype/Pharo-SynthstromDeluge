@@ -7,7 +7,9 @@ Class {
 	],
 	#classVars : [
 		'PatchAmountFromSourceCompressor',
-		'PatchAmountFromSourceLfo1'
+		'PatchAmountFromSourceEnvelope2',
+		'PatchAmountFromSourceLfo1',
+		'PatchAmountFromSourceLfo2'
 	],
 	#category : #'Synthstrom-Deluge'
 }
@@ -18,8 +20,18 @@ DelugeModKnob class >> patchAmountFromSourceCompressor [
 ]
 
 { #category : #accessing }
+DelugeModKnob class >> patchAmountFromSourceEnvelope2 [
+	^ PatchAmountFromSourceEnvelope2 ifNil: [ PatchAmountFromSourceEnvelope2 := 'envelope2' ]
+]
+
+{ #category : #accessing }
 DelugeModKnob class >> patchAmountFromSourceLfo1 [
 	^ PatchAmountFromSourceLfo1 ifNil: [ PatchAmountFromSourceLfo1 := 'lfo1' ]
+]
+
+{ #category : #accessing }
+DelugeModKnob class >> patchAmountFromSourceLfo2 [
+	^ PatchAmountFromSourceLfo2 ifNil: [ PatchAmountFromSourceLfo2 := 'lfo2' ]
 ]
 
 { #category : #accessing }
@@ -33,8 +45,18 @@ DelugeModKnob >> bePatchAmountFromSourceCompressor [
 ]
 
 { #category : #configuring }
+DelugeModKnob >> bePatchAmountFromSourceEnvelope2 [
+	patchAmountFromSource := self class patchAmountFromSourceEnvelope2
+]
+
+{ #category : #configuring }
 DelugeModKnob >> bePatchAmountFromSourceLfo1 [
 	patchAmountFromSource := self class patchAmountFromSourceLfo1
+]
+
+{ #category : #configuring }
+DelugeModKnob >> bePatchAmountFromSourceLfo2 [
+	patchAmountFromSource := self class patchAmountFromSourceLfo2
 ]
 
 { #category : #accessing }

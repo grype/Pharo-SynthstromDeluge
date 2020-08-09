@@ -15,14 +15,50 @@ Class {
 		'zone'
 	],
 	#classVars : [
-		'TypeSquare'
+		'TypeAnalogSaw',
+		'TypeAnalogSquare',
+		'TypeSample',
+		'TypeSaw',
+		'TypeSine',
+		'TypeSquare',
+		'TypeTriangle'
 	],
 	#category : #'Synthstrom-Deluge'
 }
 
 { #category : #accessing }
+DelugeOsc2 class >> typeAnalogSaw [
+	^ TypeAnalogSaw ifNil: [ TypeAnalogSaw := 'analogSaw' ]
+]
+
+{ #category : #accessing }
+DelugeOsc2 class >> typeAnalogSquare [
+	^ TypeAnalogSquare ifNil: [ TypeAnalogSquare := 'analogSquare' ]
+]
+
+{ #category : #accessing }
+DelugeOsc2 class >> typeSample [
+	^ TypeSample ifNil: [ TypeSample := 'sample' ]
+]
+
+{ #category : #accessing }
+DelugeOsc2 class >> typeSaw [
+	^ TypeSaw ifNil: [ TypeSaw := 'saw' ]
+]
+
+{ #category : #accessing }
+DelugeOsc2 class >> typeSine [
+	^ TypeSine ifNil: [ TypeSine := 'sine' ]
+]
+
+{ #category : #accessing }
 DelugeOsc2 class >> typeSquare [
 	^ TypeSquare ifNil: [ TypeSquare := 'square' ]
+]
+
+{ #category : #accessing }
+DelugeOsc2 class >> typeTriangle [
+	^ TypeTriangle ifNil: [ TypeTriangle := 'triangle' ]
 ]
 
 { #category : #accessing }
@@ -31,8 +67,38 @@ DelugeOsc2 class >> xmlElementName [
 ]
 
 { #category : #configuring }
+DelugeOsc2 >> beTypeAnalogSaw [
+	type := self class typeAnalogSaw
+]
+
+{ #category : #configuring }
+DelugeOsc2 >> beTypeAnalogSquare [
+	type := self class typeAnalogSquare
+]
+
+{ #category : #configuring }
+DelugeOsc2 >> beTypeSample [
+	type := self class typeSample
+]
+
+{ #category : #configuring }
+DelugeOsc2 >> beTypeSaw [
+	type := self class typeSaw
+]
+
+{ #category : #configuring }
+DelugeOsc2 >> beTypeSine [
+	type := self class typeSine
+]
+
+{ #category : #configuring }
 DelugeOsc2 >> beTypeSquare [
 	type := self class typeSquare
+]
+
+{ #category : #configuring }
+DelugeOsc2 >> beTypeTriangle [
+	type := self class typeTriangle
 ]
 
 { #category : #accessing }

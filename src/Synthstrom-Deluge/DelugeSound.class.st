@@ -25,17 +25,38 @@ Class {
 		'transpose'
 	],
 	#classVars : [
+		'LpfMode12dB',
 		'LpfMode24dB',
+		'LpfMode24dBDrive',
 		'MidiKnobsEmpty',
+		'ModFXTypeChorus',
+		'ModFXTypeFlanger',
 		'ModFXTypeNone',
-		'ModeSubtractive'
+		'ModFXTypePhaser',
+		'ModeFm',
+		'ModeRingmod',
+		'ModeSubtractive',
+		'PolyphonicAuto',
+		'PolyphonicLegato',
+		'PolyphonicMono',
+		'PolyphonicPoly'
 	],
 	#category : #'Synthstrom-Deluge'
 }
 
 { #category : #accessing }
+DelugeSound class >> lpfMode12dB [
+	^ LpfMode12dB ifNil: [ LpfMode12dB := '12dB' ]
+]
+
+{ #category : #accessing }
 DelugeSound class >> lpfMode24dB [
 	^ LpfMode24dB ifNil: [ LpfMode24dB := '24dB' ]
+]
+
+{ #category : #accessing }
+DelugeSound class >> lpfMode24dBDrive [
+	^ LpfMode24dBDrive ifNil: [ LpfMode24dBDrive := '24dBDrive' ]
 ]
 
 { #category : #accessing }
@@ -45,13 +66,58 @@ DelugeSound class >> midiKnobsEmpty [
 ]
 
 { #category : #accessing }
+DelugeSound class >> modFXTypeChorus [
+	^ ModFXTypeChorus ifNil: [ ModFXTypeChorus := 'chorus' ]
+]
+
+{ #category : #accessing }
+DelugeSound class >> modFXTypeFlanger [
+	^ ModFXTypeFlanger ifNil: [ ModFXTypeFlanger := 'flanger' ]
+]
+
+{ #category : #accessing }
 DelugeSound class >> modFXTypeNone [
 	^ ModFXTypeNone ifNil: [ ModFXTypeNone := 'none' ]
 ]
 
 { #category : #accessing }
+DelugeSound class >> modFXTypePhaser [
+	^ ModFXTypePhaser ifNil: [ ModFXTypePhaser := 'phaser' ]
+]
+
+{ #category : #accessing }
+DelugeSound class >> modeFm [
+	^ ModeFm ifNil: [ ModeFm := 'fm' ]
+]
+
+{ #category : #accessing }
+DelugeSound class >> modeRingmod [
+	^ ModeRingmod ifNil: [ ModeRingmod := 'ringmod' ]
+]
+
+{ #category : #accessing }
 DelugeSound class >> modeSubtractive [
 	^ ModeSubtractive ifNil: [ ModeSubtractive := 'subtractive' ]
+]
+
+{ #category : #accessing }
+DelugeSound class >> polyphonicAuto [
+	^ PolyphonicAuto ifNil: [ PolyphonicAuto := 'auto' ]
+]
+
+{ #category : #accessing }
+DelugeSound class >> polyphonicLegato [
+	^ PolyphonicLegato ifNil: [ PolyphonicLegato := 'legato' ]
+]
+
+{ #category : #accessing }
+DelugeSound class >> polyphonicMono [
+	^ PolyphonicMono ifNil: [ PolyphonicMono := 'mono' ]
+]
+
+{ #category : #accessing }
+DelugeSound class >> polyphonicPoly [
+	^ PolyphonicPoly ifNil: [ PolyphonicPoly := 'poly' ]
 ]
 
 { #category : #accessing }
@@ -70,8 +136,18 @@ DelugeSound >> arpeggiator: anObject [
 ]
 
 { #category : #configuring }
+DelugeSound >> beLpfMode12dB [
+	lpfMode := self class lpfMode12dB
+]
+
+{ #category : #configuring }
 DelugeSound >> beLpfMode24dB [
 	lpfMode := self class lpfMode24dB
+]
+
+{ #category : #configuring }
+DelugeSound >> beLpfMode24dBDrive [
+	lpfMode := self class lpfMode24dBDrive
 ]
 
 { #category : #configuring }
@@ -80,13 +156,58 @@ DelugeSound >> beMidiKnobsEmpty [
 ]
 
 { #category : #configuring }
+DelugeSound >> beModFXTypeChorus [
+	modFXType := self class modFXTypeChorus
+]
+
+{ #category : #configuring }
+DelugeSound >> beModFXTypeFlanger [
+	modFXType := self class modFXTypeFlanger
+]
+
+{ #category : #configuring }
 DelugeSound >> beModFXTypeNone [
 	modFXType := self class modFXTypeNone
 ]
 
 { #category : #configuring }
+DelugeSound >> beModFXTypePhaser [
+	modFXType := self class modFXTypePhaser
+]
+
+{ #category : #configuring }
+DelugeSound >> beModeFm [
+	mode := self class modeFm
+]
+
+{ #category : #configuring }
+DelugeSound >> beModeRingmod [
+	mode := self class modeRingmod
+]
+
+{ #category : #configuring }
 DelugeSound >> beModeSubtractive [
 	mode := self class modeSubtractive
+]
+
+{ #category : #configuring }
+DelugeSound >> bePolyphonicAuto [
+	polyphonic := self class polyphonicAuto
+]
+
+{ #category : #configuring }
+DelugeSound >> bePolyphonicLegato [
+	polyphonic := self class polyphonicLegato
+]
+
+{ #category : #configuring }
+DelugeSound >> bePolyphonicMono [
+	polyphonic := self class polyphonicMono
+]
+
+{ #category : #configuring }
+DelugeSound >> bePolyphonicPoly [
+	polyphonic := self class polyphonicPoly
 ]
 
 { #category : #accessing }

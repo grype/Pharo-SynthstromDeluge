@@ -6,14 +6,32 @@ Class {
 		'type'
 	],
 	#classVars : [
-		'TypeSine'
+		'TypeSaw',
+		'TypeSine',
+		'TypeSquare',
+		'TypeTriangle'
 	],
 	#category : #'Synthstrom-Deluge'
 }
 
 { #category : #accessing }
+DelugeLfo1 class >> typeSaw [
+	^ TypeSaw ifNil: [ TypeSaw := 'saw' ]
+]
+
+{ #category : #accessing }
 DelugeLfo1 class >> typeSine [
 	^ TypeSine ifNil: [ TypeSine := 'sine' ]
+]
+
+{ #category : #accessing }
+DelugeLfo1 class >> typeSquare [
+	^ TypeSquare ifNil: [ TypeSquare := 'square' ]
+]
+
+{ #category : #accessing }
+DelugeLfo1 class >> typeTriangle [
+	^ TypeTriangle ifNil: [ TypeTriangle := 'triangle' ]
 ]
 
 { #category : #accessing }
@@ -22,8 +40,23 @@ DelugeLfo1 class >> xmlElementName [
 ]
 
 { #category : #configuring }
+DelugeLfo1 >> beTypeSaw [
+	type := self class typeSaw
+]
+
+{ #category : #configuring }
 DelugeLfo1 >> beTypeSine [
 	type := self class typeSine
+]
+
+{ #category : #configuring }
+DelugeLfo1 >> beTypeSquare [
+	type := self class typeSquare
+]
+
+{ #category : #configuring }
+DelugeLfo1 >> beTypeTriangle [
+	type := self class typeTriangle
 ]
 
 { #category : #'magritte description' }

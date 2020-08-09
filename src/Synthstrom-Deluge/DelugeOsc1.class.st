@@ -31,7 +31,7 @@ DelugeOsc1 class >> xmlElementName [
 
 { #category : #configuring }
 DelugeOsc1 >> beTypeSaw [
-	type := self typeSaw
+	type := self class typeSaw
 ]
 
 { #category : #accessing }

@@ -29,12 +29,12 @@ DelugeModKnob class >> xmlElementName [
 
 { #category : #configuring }
 DelugeModKnob >> bePatchAmountFromSourceCompressor [
-	patchAmountFromSource := self patchAmountFromSourceCompressor
+	patchAmountFromSource := self class patchAmountFromSourceCompressor
 ]
 
 { #category : #configuring }
 DelugeModKnob >> bePatchAmountFromSourceLfo1 [
-	patchAmountFromSource := self patchAmountFromSourceLfo1
+	patchAmountFromSource := self class patchAmountFromSourceLfo1
 ]
 
 { #category : #accessing }

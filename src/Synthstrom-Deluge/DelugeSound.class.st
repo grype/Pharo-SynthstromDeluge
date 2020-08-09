@@ -71,22 +71,22 @@ DelugeSound >> arpeggiator: anObject [
 
 { #category : #configuring }
 DelugeSound >> beLpfMode24dB [
-	lpfMode := self lpfMode24dB
+	lpfMode := self class lpfMode24dB
 ]
 
 { #category : #configuring }
 DelugeSound >> beMidiKnobsEmpty [
-	midiKnobs := self midiKnobsEmpty
+	midiKnobs := self class midiKnobsEmpty
 ]
 
 { #category : #configuring }
 DelugeSound >> beModFXTypeNone [
-	modFXType := self modFXTypeNone
+	modFXType := self class modFXTypeNone
 ]
 
 { #category : #configuring }
 DelugeSound >> beModeSubtractive [
-	mode := self modeSubtractive
+	mode := self class modeSubtractive
 ]
 
 { #category : #accessing }

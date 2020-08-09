@@ -23,7 +23,7 @@ DelugeLfo1 class >> xmlElementName [
 
 { #category : #configuring }
 DelugeLfo1 >> beTypeSine [
-	type := self typeSine
+	type := self class typeSine
 ]
 
 { #category : #'magritte description' }

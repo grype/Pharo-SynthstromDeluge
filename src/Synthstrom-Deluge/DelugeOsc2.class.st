@@ -32,7 +32,7 @@ DelugeOsc2 class >> xmlElementName [
 
 { #category : #configuring }
 DelugeOsc2 >> beTypeSquare [
-	type := self typeSquare
+	type := self class typeSquare
 ]
 
 { #category : #accessing }

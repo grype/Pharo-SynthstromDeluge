@@ -59,27 +59,27 @@ DelugePatchCable >> amount: anObject [
 
 { #category : #configuring }
 DelugePatchCable >> beDestinationLpfFrequency [
-	destination := self destinationLpfFrequency
+	destination := self class destinationLpfFrequency
 ]
 
 { #category : #configuring }
 DelugePatchCable >> beDestinationVolume [
-	destination := self destinationVolume
+	destination := self class destinationVolume
 ]
 
 { #category : #configuring }
 DelugePatchCable >> beSourceEnvelope2 [
-	source := self sourceEnvelope2
+	source := self class sourceEnvelope2
 ]
 
 { #category : #configuring }
 DelugePatchCable >> beSourceNote [
-	source := self sourceNote
+	source := self class sourceNote
 ]
 
 { #category : #configuring }
 DelugePatchCable >> beSourceVelocity [
-	source := self sourceVelocity
+	source := self class sourceVelocity
 ]
 
 { #category : #'magritte description' }

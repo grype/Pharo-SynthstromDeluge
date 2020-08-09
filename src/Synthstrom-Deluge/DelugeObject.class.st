@@ -46,6 +46,8 @@ DelugeObject class >> generateClassesFromFile: aFile containerNodeName: containe
 
 { #category : #generating }
 DelugeObject class >> generateConstantsAccessorsFromReferences: refs [
+	"Takes an array of references produced by #allReferencedConstants and produces a change set for defining and accessing those constants via methods"
+
 	| allChanges cls valueName classVarName classMethodName clsChange methChange becomeMethodName |
 
 	allChanges := OrderedCollection new.
@@ -53,37 +55,40 @@ DelugeObject class >> generateConstantsAccessorsFromReferences: refs [
 		cls := Smalltalk at: v key key asSymbol.
 		valueName := v value trimBoth.
 		valueName ifEmpty: [ valueName := 'Empty' ].
-
 		classVarName := v key value greaseString capitalized
-		                , valueName capitalized.
+		                , valueName capitalized copyWithoutAll:
+			                CharacterSet separatorsAndPunctuation.
+		(classVarName asLowercase includesSubstring: 'filename') ifFalse: [ 
+			(cls classVarNames includes: classVarName asSymbol) ifFalse: [ 
+				clsChange := RBAddClassVariableChange new.
+				clsChange class: cls variable: classVarName.
+				allChanges add: clsChange ].
 
-		(cls classVarNames includes: classVarName asSymbol) ifFalse: [ 
-			clsChange := RBAddClassVariableChange new.
-			clsChange class: cls variable: classVarName.
-			allChanges add: clsChange ].
+			classMethodName := v key value greaseString , valueName capitalized 
+				                   copyWithoutAll:
+				                   CharacterSet separatorsAndPunctuation.
 
-		classMethodName := v key value greaseString , valueName capitalized.
-
-		cls class methodDict at: classMethodName asSymbol ifAbsent: [ 
-			methChange := RBAddMethodChange new.
-			methChange class: cls class protocol: #accessing source: ('{1}
+			cls class methodDict at: classMethodName asSymbol ifAbsent: [ 
+				methChange := RBAddMethodChange new.
+				methChange class: cls class protocol: #accessing source: ('{1}
 	^ {2} ifNil: [ {2} := ''{3}'' ]' format:
-					 (Array with: classMethodName with: classVarName with: v value)).
-			allChanges add: methChange ].
+						 (Array with: classMethodName with: classVarName with: v value)).
+				allChanges add: methChange ].
 
-		becomeMethodName := 'be' , classVarName.
-		cls methodDict at: becomeMethodName ifAbsent: [ 
-			methChange := RBAddMethodChange new.
-			methChange class: cls protocol: #configuring source: ('{1}
-	{2} := self {3}' format: { 
-						 becomeMethodName.
-						 v key value.
-						 classMethodName }).
-			allChanges add: methChange ] ].
+			becomeMethodName := 'be' , classVarName.
+			cls methodDict at: becomeMethodName asSymbol ifAbsent: [ 
+				methChange := RBAddMethodChange new.
+				methChange class: cls protocol: #configuring source: ('{1}
+	{2} := self class {3}' format: { 
+							 becomeMethodName.
+							 v key value.
+							 classMethodName }).
+				allChanges add: methChange ] ] ].
+	allChanges ifEmpty: [ ^ self ].
 	(CBChangesBrowser changes: allChanges) open
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #formatting }
 DelugeObject class >> wrapXMLString: aString in: parentNodeName [
 	^ ('^( *<\?xml [^>]*>)' asRegex
 		 copy: aString

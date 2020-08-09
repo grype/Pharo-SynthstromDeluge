@@ -7,14 +7,31 @@ Class {
 		'sampleRanges',
 		'timeStretchAmount',
 		'timeStretchEnable',
-		'type'
+		'type',
+		'cents',
+		'retrigPhase',
+		'transpose',
+		'zone'
+	],
+	#classVars : [
+		'TypeSaw'
 	],
 	#category : #'Synthstrom-Deluge'
 }
 
 { #category : #accessing }
+DelugeOsc1 class >> typeSaw [
+	^ TypeSaw ifNil: [ TypeSaw := 'saw' ]
+]
+
+{ #category : #accessing }
 DelugeOsc1 class >> xmlElementName [
 	^ 'osc1'
+]
+
+{ #category : #configuring }
+DelugeOsc1 >> beTypeSaw [
+	type := self typeSaw
 ]
 
 { #category : #accessing }

@@ -3,7 +3,11 @@ Class {
 	#superclass : #DelugeObject,
 	#instVars : [
 		'endSamplePos',
-		'startSamplePos'
+		'startSamplePos',
+		'endLoopPos',
+		'endMilliseconds',
+		'startLoopPos',
+		'startMilliseconds'
 	],
 	#category : #'Synthstrom-Deluge'
 }

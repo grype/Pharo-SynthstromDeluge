@@ -5,14 +5,34 @@ Class {
 		'cents',
 		'retrigPhase',
 		'transpose',
-		'type'
+		'type',
+		'loopMode',
+		'oscillatorSync',
+		'reversed',
+		'sampleRanges',
+		'timeStretchAmount',
+		'timeStretchEnable',
+		'zone'
+	],
+	#classVars : [
+		'TypeSquare'
 	],
 	#category : #'Synthstrom-Deluge'
 }
 
 { #category : #accessing }
+DelugeOsc2 class >> typeSquare [
+	^ TypeSquare ifNil: [ TypeSquare := 'square' ]
+]
+
+{ #category : #accessing }
 DelugeOsc2 class >> xmlElementName [
 	^ 'osc2'
+]
+
+{ #category : #configuring }
+DelugeOsc2 >> beTypeSquare [
+	type := self typeSquare
 ]
 
 { #category : #accessing }

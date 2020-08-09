@@ -18,10 +18,41 @@ Class {
 		'osc2',
 		'polyphonic',
 		'unison',
-		'voicePriority'
+		'voicePriority',
+		'modulator1',
+		'modulator2',
+		'oscillatorReset',
+		'transpose'
+	],
+	#classVars : [
+		'LpfMode24dB',
+		'MidiKnobsEmpty',
+		'ModFXTypeNone',
+		'ModeSubtractive'
 	],
 	#category : #'Synthstrom-Deluge'
 }
+
+{ #category : #accessing }
+DelugeSound class >> lpfMode24dB [
+	^ LpfMode24dB ifNil: [ LpfMode24dB := '24dB' ]
+]
+
+{ #category : #accessing }
+DelugeSound class >> midiKnobsEmpty [
+	^ MidiKnobsEmpty ifNil: [ MidiKnobsEmpty := '
+	' ]
+]
+
+{ #category : #accessing }
+DelugeSound class >> modFXTypeNone [
+	^ ModFXTypeNone ifNil: [ ModFXTypeNone := 'none' ]
+]
+
+{ #category : #accessing }
+DelugeSound class >> modeSubtractive [
+	^ ModeSubtractive ifNil: [ ModeSubtractive := 'subtractive' ]
+]
 
 { #category : #accessing }
 DelugeSound class >> xmlElementName [
@@ -36,6 +67,26 @@ DelugeSound >> arpeggiator [
 { #category : #accessing }
 DelugeSound >> arpeggiator: anObject [
 	arpeggiator := anObject
+]
+
+{ #category : #configuring }
+DelugeSound >> beLpfMode24dB [
+	lpfMode := self lpfMode24dB
+]
+
+{ #category : #configuring }
+DelugeSound >> beMidiKnobsEmpty [
+	midiKnobs := self midiKnobsEmpty
+]
+
+{ #category : #configuring }
+DelugeSound >> beModFXTypeNone [
+	modFXType := self modFXTypeNone
+]
+
+{ #category : #configuring }
+DelugeSound >> beModeSubtractive [
+	mode := self modeSubtractive
 ]
 
 { #category : #accessing }

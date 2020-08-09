@@ -5,12 +5,36 @@ Class {
 		'controlsParam',
 		'patchAmountFromSource'
 	],
+	#classVars : [
+		'PatchAmountFromSourceCompressor',
+		'PatchAmountFromSourceLfo1'
+	],
 	#category : #'Synthstrom-Deluge'
 }
 
 { #category : #accessing }
+DelugeModKnob class >> patchAmountFromSourceCompressor [
+	^ PatchAmountFromSourceCompressor ifNil: [ PatchAmountFromSourceCompressor := 'compressor' ]
+]
+
+{ #category : #accessing }
+DelugeModKnob class >> patchAmountFromSourceLfo1 [
+	^ PatchAmountFromSourceLfo1 ifNil: [ PatchAmountFromSourceLfo1 := 'lfo1' ]
+]
+
+{ #category : #accessing }
 DelugeModKnob class >> xmlElementName [
 	^ 'modKnob'
+]
+
+{ #category : #configuring }
+DelugeModKnob >> bePatchAmountFromSourceCompressor [
+	patchAmountFromSource := self patchAmountFromSourceCompressor
+]
+
+{ #category : #configuring }
+DelugeModKnob >> bePatchAmountFromSourceLfo1 [
+	patchAmountFromSource := self patchAmountFromSourceLfo1
 ]
 
 { #category : #accessing }

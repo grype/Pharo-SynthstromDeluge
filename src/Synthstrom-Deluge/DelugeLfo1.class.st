@@ -5,12 +5,25 @@ Class {
 		'syncLevel',
 		'type'
 	],
+	#classVars : [
+		'TypeSine'
+	],
 	#category : #'Synthstrom-Deluge'
 }
 
 { #category : #accessing }
+DelugeLfo1 class >> typeSine [
+	^ TypeSine ifNil: [ TypeSine := 'sine' ]
+]
+
+{ #category : #accessing }
 DelugeLfo1 class >> xmlElementName [
 	^ 'lfo1'
+]
+
+{ #category : #configuring }
+DelugeLfo1 >> beTypeSine [
+	type := self typeSine
 ]
 
 { #category : #'magritte description' }

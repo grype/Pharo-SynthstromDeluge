@@ -41,7 +41,7 @@ DelugeEnvelope1 >> descriptionAttack [
 	^ MAStringDescription new
 		accessor: #attack;
 		label: 'attack';
-		priority: 1;
+		priority: 4;
 		beXmlElement;
 		yourself
 ]
@@ -63,7 +63,7 @@ DelugeEnvelope1 >> descriptionRelease [
 	^ MAStringDescription new
 		accessor: #release;
 		label: 'release';
-		priority: 3;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]
@@ -74,7 +74,7 @@ DelugeEnvelope1 >> descriptionSustain [
 	^ MAStringDescription new
 		accessor: #sustain;
 		label: 'sustain';
-		priority: 4;
+		priority: 3;
 		beXmlElement;
 		yourself
 ]

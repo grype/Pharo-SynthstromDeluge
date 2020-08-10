@@ -5,23 +5,7 @@ Class {
 		'cents',
 		'retrigPhase',
 		'transpose',
-		'type',
-		'loopMode',
-		'oscillatorSync',
-		'reversed',
-		'sampleRanges',
-		'timeStretchAmount',
-		'timeStretchEnable',
-		'zone'
-	],
-	#classVars : [
-		'TypeAnalogSaw',
-		'TypeAnalogSquare',
-		'TypeSample',
-		'TypeSaw',
-		'TypeSine',
-		'TypeSquare',
-		'TypeTriangle'
+		'type'
 	],
 	#category : #'Synthstrom-Deluge'
 }
@@ -117,7 +101,18 @@ DelugeOsc2 >> descriptionCents [
 	^ MANumberDescription new
 		accessor: #cents;
 		label: 'cents';
-		priority: 2;
+		priority: 4;
+		beXmlElement;
+		yourself
+]
+
+{ #category : #'magritte description' }
+DelugeOsc2 >> descriptionFileName [
+	<magritteDescription>
+	^ MAStringDescription new
+		accessor: #fileName;
+		label: 'fileName';
+		priority: 4;
 		beXmlElement;
 		yourself
 ]
@@ -128,7 +123,7 @@ DelugeOsc2 >> descriptionLoopMode [
 	^ MANumberDescription new
 		accessor: #loopMode;
 		label: 'loopMode';
-		priority: 6;
+		priority: 3;
 		beXmlElement;
 		yourself
 ]
@@ -150,7 +145,7 @@ DelugeOsc2 >> descriptionRetrigPhase [
 	^ MANumberDescription new
 		accessor: #retrigPhase;
 		label: 'retrigPhase';
-		priority: 4;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]
@@ -161,7 +156,7 @@ DelugeOsc2 >> descriptionReversed [
 	^ MANumberDescription new
 		accessor: #reversed;
 		label: 'reversed';
-		priority: 4;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]
@@ -184,7 +179,7 @@ DelugeOsc2 >> descriptionTimeStretchAmount [
 	^ MANumberDescription new
 		accessor: #timeStretchAmount;
 		label: 'timeStretchAmount';
-		priority: 2;
+		priority: 8;
 		beXmlElement;
 		yourself
 ]
@@ -195,7 +190,7 @@ DelugeOsc2 >> descriptionTimeStretchEnable [
 	^ MANumberDescription new
 		accessor: #timeStretchEnable;
 		label: 'timeStretchEnable';
-		priority: 3;
+		priority: 7;
 		beXmlElement;
 		yourself
 ]
@@ -217,7 +212,7 @@ DelugeOsc2 >> descriptionType [
 	^ MAStringDescription new
 		accessor: #type;
 		label: 'type';
-		priority: 1;
+		priority: 2;
 		beXmlElement;
 		yourself
 ]
@@ -228,10 +223,20 @@ DelugeOsc2 >> descriptionZone [
 	^ MAToOneRelationDescription new
 		accessor: #zone;
 		label: 'zone';
-		priority: 1;
+		priority: 9;
 		classes: { DelugeZone };
 		beXmlInlineElement;
 		yourself
+]
+
+{ #category : #accessing }
+DelugeOsc2 >> fileName [
+	^ fileName
+]
+
+{ #category : #accessing }
+DelugeOsc2 >> fileName: anObject [
+	fileName := anObject
 ]
 
 { #category : #accessing }

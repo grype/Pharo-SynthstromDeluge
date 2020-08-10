@@ -4,52 +4,7 @@ Class {
 	#instVars : [
 		'amount',
 		'destination',
-		'source',
-		'rangeAdjustable'
-	],
-	#classVars : [
-		'DestinationCarrier1Feedback',
-		'DestinationCarrier2Feedback',
-		'DestinationDelayRate',
-		'DestinationEnv1Attack',
-		'DestinationEnv1Decay',
-		'DestinationEnv1Sustain',
-		'DestinationEnv2Decay',
-		'DestinationHpfFrequency',
-		'DestinationHpfResonance',
-		'DestinationLfo2Rate',
-		'DestinationLpfFrequency',
-		'DestinationLpfResonance',
-		'DestinationModFXDepth',
-		'DestinationModFXRate',
-		'DestinationModulator1Feedback',
-		'DestinationModulator1Pitch',
-		'DestinationModulator1Volume',
-		'DestinationModulator2Feedback',
-		'DestinationModulator2Pitch',
-		'DestinationModulator2Volume',
-		'DestinationNoiseVolume',
-		'DestinationOscAPhaseWidth',
-		'DestinationOscAPitch',
-		'DestinationOscAVolume',
-		'DestinationOscBPhaseWidth',
-		'DestinationOscBPitch',
-		'DestinationOscBVolume',
-		'DestinationPan',
-		'DestinationPitch',
-		'DestinationRange',
-		'DestinationReverbAmount',
-		'DestinationVolume',
-		'DestinationVolumePostReverbSend',
-		'SourceAftertouch',
-		'SourceCompressor',
-		'SourceEnvelope1',
-		'SourceEnvelope2',
-		'SourceLfo1',
-		'SourceLfo2',
-		'SourceNote',
-		'SourceRandom',
-		'SourceVelocity'
+		'source'
 	],
 	#category : #'Synthstrom-Deluge'
 }
@@ -495,7 +450,7 @@ DelugePatchCable >> descriptionAmount [
 	^ MAStringDescription new
 		accessor: #amount;
 		label: 'amount';
-		priority: 1;
+		priority: 2;
 		beXmlElement;
 		yourself
 ]
@@ -506,7 +461,7 @@ DelugePatchCable >> descriptionDestination [
 	^ MAStringDescription new
 		accessor: #destination;
 		label: 'destination';
-		priority: 3;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]
@@ -528,7 +483,7 @@ DelugePatchCable >> descriptionSource [
 	^ MAStringDescription new
 		accessor: #source;
 		label: 'source';
-		priority: 2;
+		priority: 3;
 		beXmlElement;
 		yourself
 ]

@@ -41,7 +41,7 @@ DelugeEqualizer >> descriptionBass [
 	^ MAStringDescription new
 		accessor: #bass;
 		label: 'bass';
-		priority: 1;
+		priority: 2;
 		beXmlElement;
 		yourself
 ]
@@ -63,7 +63,7 @@ DelugeEqualizer >> descriptionTreble [
 	^ MAStringDescription new
 		accessor: #treble;
 		label: 'treble';
-		priority: 2;
+		priority: 3;
 		beXmlElement;
 		yourself
 ]
@@ -74,7 +74,7 @@ DelugeEqualizer >> descriptionTrebleFrequency [
 	^ MAStringDescription new
 		accessor: #trebleFrequency;
 		label: 'trebleFrequency';
-		priority: 3;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]

@@ -2,11 +2,7 @@ Class {
 	#name : #DelugeZone,
 	#superclass : #DelugeObject,
 	#instVars : [
-		'endSamplePos',
-		'startSamplePos',
-		'endLoopPos',
 		'endMilliseconds',
-		'startLoopPos',
 		'startMilliseconds'
 	],
 	#category : #'Synthstrom-Deluge'
@@ -45,7 +41,7 @@ DelugeZone >> descriptionEndSamplePos [
 	^ MANumberDescription new
 		accessor: #endSamplePos;
 		label: 'endSamplePos';
-		priority: 1;
+		priority: 4;
 		beXmlElement;
 		yourself
 ]
@@ -56,7 +52,7 @@ DelugeZone >> descriptionStartLoopPos [
 	^ MANumberDescription new
 		accessor: #startLoopPos;
 		label: 'startLoopPos';
-		priority: 1;
+		priority: 5;
 		beXmlElement;
 		yourself
 ]
@@ -78,7 +74,7 @@ DelugeZone >> descriptionStartSamplePos [
 	^ MANumberDescription new
 		accessor: #startSamplePos;
 		label: 'startSamplePos';
-		priority: 2;
+		priority: 3;
 		beXmlElement;
 		yourself
 ]

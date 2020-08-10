@@ -5,12 +5,6 @@ Class {
 		'syncLevel',
 		'type'
 	],
-	#classVars : [
-		'TypeSaw',
-		'TypeSine',
-		'TypeSquare',
-		'TypeTriangle'
-	],
 	#category : #'Synthstrom-Deluge'
 }
 

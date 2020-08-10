@@ -1,5 +1,5 @@
 Class {
-	#name : #DelugeSynth,
+	#name : #DelugeSynthContainer,
 	#superclass : #DelugeObject,
 	#instVars : [
 		'earliestCompatibleFirmware',
@@ -16,57 +16,57 @@ Class {
 }
 
 { #category : #testing }
-DelugeSynth class >> canBeRoot [
+DelugeSynthContainer class >> canBeRoot [
 	^ true
 ]
 
 { #category : #accessing }
-DelugeSynth class >> earliestCompatibleFirmware200beta [
+DelugeSynthContainer class >> earliestCompatibleFirmware200beta [
 	^ EarliestCompatibleFirmware200beta ifNil: [ EarliestCompatibleFirmware200beta := '2.0.0-beta' ]
 ]
 
 { #category : #accessing }
-DelugeSynth class >> earliestCompatibleFirmware210 [
+DelugeSynthContainer class >> earliestCompatibleFirmware210 [
 	^ EarliestCompatibleFirmware210 ifNil: [ EarliestCompatibleFirmware210 := '2.1.0' ]
 ]
 
 { #category : #accessing }
-DelugeSynth class >> firmwareVersion200beta [
+DelugeSynthContainer class >> firmwareVersion200beta [
 	^ FirmwareVersion200beta ifNil: [ FirmwareVersion200beta := '2.0.0-beta' ]
 ]
 
 { #category : #accessing }
-DelugeSynth class >> firmwareVersion210 [
+DelugeSynthContainer class >> firmwareVersion210 [
 	^ FirmwareVersion210 ifNil: [ FirmwareVersion210 := '2.1.0' ]
 ]
 
 { #category : #accessing }
-DelugeSynth class >> xmlElementName [
-	^ 'synth'
+DelugeSynthContainer class >> xmlElementName [
+	^ 'synthContainer'
 ]
 
 { #category : #configuring }
-DelugeSynth >> beEarliestCompatibleFirmware200beta [
+DelugeSynthContainer >> beEarliestCompatibleFirmware200beta [
 	earliestCompatibleFirmware := self class earliestCompatibleFirmware200beta
 ]
 
 { #category : #configuring }
-DelugeSynth >> beEarliestCompatibleFirmware210 [
+DelugeSynthContainer >> beEarliestCompatibleFirmware210 [
 	earliestCompatibleFirmware := self class earliestCompatibleFirmware210
 ]
 
 { #category : #configuring }
-DelugeSynth >> beFirmwareVersion200beta [
+DelugeSynthContainer >> beFirmwareVersion200beta [
 	firmwareVersion := self class firmwareVersion200beta
 ]
 
 { #category : #configuring }
-DelugeSynth >> beFirmwareVersion210 [
+DelugeSynthContainer >> beFirmwareVersion210 [
 	firmwareVersion := self class firmwareVersion210
 ]
 
 { #category : #'magritte description' }
-DelugeSynth >> descriptionEarliestCompatibleFirmware [
+DelugeSynthContainer >> descriptionEarliestCompatibleFirmware [
 	<magritteDescription>
 	^ MAStringDescription new
 		accessor: #earliestCompatibleFirmware;
@@ -77,7 +77,7 @@ DelugeSynth >> descriptionEarliestCompatibleFirmware [
 ]
 
 { #category : #'magritte description' }
-DelugeSynth >> descriptionFirmwareVersion [
+DelugeSynthContainer >> descriptionFirmwareVersion [
 	<magritteDescription>
 	^ MAStringDescription new
 		accessor: #firmwareVersion;
@@ -88,7 +88,7 @@ DelugeSynth >> descriptionFirmwareVersion [
 ]
 
 { #category : #'magritte description' }
-DelugeSynth >> descriptionSound [
+DelugeSynthContainer >> descriptionSound [
 	<magritteDescription>
 	^ MAToOneRelationDescription new
 		accessor: #sound;
@@ -100,31 +100,31 @@ DelugeSynth >> descriptionSound [
 ]
 
 { #category : #accessing }
-DelugeSynth >> earliestCompatibleFirmware [
+DelugeSynthContainer >> earliestCompatibleFirmware [
 	^ earliestCompatibleFirmware
 ]
 
 { #category : #accessing }
-DelugeSynth >> earliestCompatibleFirmware: anObject [
+DelugeSynthContainer >> earliestCompatibleFirmware: anObject [
 	earliestCompatibleFirmware := anObject
 ]
 
 { #category : #accessing }
-DelugeSynth >> firmwareVersion [
+DelugeSynthContainer >> firmwareVersion [
 	^ firmwareVersion
 ]
 
 { #category : #accessing }
-DelugeSynth >> firmwareVersion: anObject [
+DelugeSynthContainer >> firmwareVersion: anObject [
 	firmwareVersion := anObject
 ]
 
 { #category : #accessing }
-DelugeSynth >> sound [
+DelugeSynthContainer >> sound [
 	^ sound
 ]
 
 { #category : #accessing }
-DelugeSynth >> sound: anObject [
+DelugeSynthContainer >> sound: anObject [
 	sound := anObject
 ]

@@ -6,12 +6,6 @@ Class {
 		'numOctaves',
 		'syncLevel'
 	],
-	#classVars : [
-		'ModeBoth',
-		'ModeDown',
-		'ModeOff',
-		'ModeUp'
-	],
 	#category : #'Synthstrom-Deluge'
 }
 
@@ -66,7 +60,7 @@ DelugeArpeggiator >> descriptionMode [
 	^ MAStringDescription new
 		accessor: #mode;
 		label: 'mode';
-		priority: 3;
+		priority: 2;
 		beXmlElement;
 		yourself
 ]
@@ -77,7 +71,7 @@ DelugeArpeggiator >> descriptionNumOctaves [
 	^ MANumberDescription new
 		accessor: #numOctaves;
 		label: 'numOctaves';
-		priority: 2;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]
@@ -88,7 +82,7 @@ DelugeArpeggiator >> descriptionSyncLevel [
 	^ MANumberDescription new
 		accessor: #syncLevel;
 		label: 'syncLevel';
-		priority: 1;
+		priority: 3;
 		beXmlElement;
 		yourself
 ]

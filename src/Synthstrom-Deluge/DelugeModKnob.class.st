@@ -5,12 +5,6 @@ Class {
 		'controlsParam',
 		'patchAmountFromSource'
 	],
-	#classVars : [
-		'PatchAmountFromSourceCompressor',
-		'PatchAmountFromSourceEnvelope2',
-		'PatchAmountFromSourceLfo1',
-		'PatchAmountFromSourceLfo2'
-	],
 	#category : #'Synthstrom-Deluge'
 }
 
@@ -75,7 +69,7 @@ DelugeModKnob >> descriptionControlsParam [
 	^ MAToOneRelationDescription new
 		accessor: #controlsParam;
 		label: 'controlsParam';
-		priority: 1;
+		priority: 2;
 		classes: { DelugeControlsParam };
 		beXmlInlineElement;
 		yourself
@@ -87,7 +81,7 @@ DelugeModKnob >> descriptionPatchAmountFromSource [
 	^ MAStringDescription new
 		accessor: #patchAmountFromSource;
 		label: 'patchAmountFromSource';
-		priority: 2;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]

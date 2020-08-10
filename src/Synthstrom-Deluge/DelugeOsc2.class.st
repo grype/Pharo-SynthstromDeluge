@@ -7,6 +7,10 @@ Class {
 		'transpose',
 		'type'
 	],
+	#classVars : [
+		'TypeSample',
+		'TypeSquare'
+	],
 	#category : #'Synthstrom-Deluge'
 }
 

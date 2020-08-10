@@ -10,12 +10,69 @@ Class {
 		'selectedDrumIndex',
 		'soundSources'
 	],
+	#classVars : [
+		'CurrentFilterTypeEq',
+		'CurrentFilterTypeLpf',
+		'LpfMode24dB',
+		'ModFXCurrentParamFeedback',
+		'ModFXTypeFlanger'
+	],
 	#category : #'Synthstrom-Deluge'
 }
 
 { #category : #accessing }
+DelugeKit class >> currentFilterTypeEq [
+	^ CurrentFilterTypeEq ifNil: [ CurrentFilterTypeEq := 'eq' ]
+]
+
+{ #category : #accessing }
+DelugeKit class >> currentFilterTypeLpf [
+	^ CurrentFilterTypeLpf ifNil: [ CurrentFilterTypeLpf := 'lpf' ]
+]
+
+{ #category : #accessing }
+DelugeKit class >> lpfMode24dB [
+	^ LpfMode24dB ifNil: [ LpfMode24dB := '24dB' ]
+]
+
+{ #category : #accessing }
+DelugeKit class >> modFXCurrentParamFeedback [
+	^ ModFXCurrentParamFeedback ifNil: [ ModFXCurrentParamFeedback := 'feedback' ]
+]
+
+{ #category : #accessing }
+DelugeKit class >> modFXTypeFlanger [
+	^ ModFXTypeFlanger ifNil: [ ModFXTypeFlanger := 'flanger' ]
+]
+
+{ #category : #accessing }
 DelugeKit class >> xmlElementName [
 	^ 'kit'
+]
+
+{ #category : #configuring }
+DelugeKit >> beCurrentFilterTypeEq [
+	currentFilterType := self class currentFilterTypeEq
+]
+
+{ #category : #configuring }
+DelugeKit >> beCurrentFilterTypeLpf [
+	currentFilterType := self class currentFilterTypeLpf
+]
+
+{ #category : #configuring }
+DelugeKit >> beLpfMode24dB [
+	lpfMode := self class lpfMode24dB
+]
+
+{ #category : #configuring }
+DelugeKit >> beModFXCurrentParamFeedback [
+	modFXCurrentParam := self class modFXCurrentParamFeedback
+]
+
+{ #category : #configuring }
+DelugeKit >> beModFXTypeFlanger [
+	modFXType := self class modFXTypeFlanger
 ]
 
 { #category : #accessing }

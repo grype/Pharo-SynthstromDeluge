@@ -20,6 +20,18 @@ Class {
 		'unison',
 		'voicePriority'
 	],
+	#classVars : [
+		'LpfMode12dB',
+		'LpfMode24dB',
+		'LpfMode24dBDrive',
+		'MidiKnobsEmpty',
+		'ModFXTypeNone',
+		'ModeSubtractive',
+		'PolyphonicAuto',
+		'PolyphonicChoke',
+		'PolyphonicMono',
+		'PolyphonicPoly'
+	],
 	#category : #'Synthstrom-Deluge'
 }
 
@@ -82,6 +94,11 @@ DelugeSound class >> modeSubtractive [
 { #category : #accessing }
 DelugeSound class >> polyphonicAuto [
 	^ PolyphonicAuto ifNil: [ PolyphonicAuto := 'auto' ]
+]
+
+{ #category : #accessing }
+DelugeSound class >> polyphonicChoke [
+	^ PolyphonicChoke ifNil: [ PolyphonicChoke := 'choke' ]
 ]
 
 { #category : #accessing }
@@ -172,6 +189,11 @@ DelugeSound >> beModeSubtractive [
 { #category : #configuring }
 DelugeSound >> bePolyphonicAuto [
 	polyphonic := self class polyphonicAuto
+]
+
+{ #category : #configuring }
+DelugeSound >> bePolyphonicChoke [
+	polyphonic := self class polyphonicChoke
 ]
 
 { #category : #configuring }

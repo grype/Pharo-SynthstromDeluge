@@ -12,6 +12,9 @@ Class {
 		'type',
 		'zone'
 	],
+	#classVars : [
+		'TypeSample'
+	],
 	#category : #'Synthstrom-Deluge'
 }
 

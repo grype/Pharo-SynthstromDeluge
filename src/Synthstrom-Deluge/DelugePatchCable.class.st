@@ -6,6 +6,23 @@ Class {
 		'destination',
 		'source'
 	],
+	#classVars : [
+		'DestinationEnv1Decay',
+		'DestinationEnv1Sustain',
+		'DestinationHpfFrequency',
+		'DestinationLpfFrequency',
+		'DestinationPan',
+		'DestinationPitch',
+		'DestinationVolume',
+		'DestinationVolumePostReverbSend',
+		'SourceCompressor',
+		'SourceEnvelope1',
+		'SourceEnvelope2',
+		'SourceLfo1',
+		'SourceLfo2',
+		'SourceRandom',
+		'SourceVelocity'
+	],
 	#category : #'Synthstrom-Deluge'
 }
 

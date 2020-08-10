@@ -5,6 +5,10 @@ Class {
 		'controlsParam',
 		'patchAmountFromSource'
 	],
+	#classVars : [
+		'PatchAmountFromSourceCompressor',
+		'PatchAmountFromSourceLfo1'
+	],
 	#category : #'Synthstrom-Deluge'
 }
 

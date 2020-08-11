@@ -8,7 +8,9 @@ Class {
 		'modFXCurrentParam',
 		'modFXType',
 		'selectedDrumIndex',
-		'soundSources'
+		'soundSources',
+		'compressor',
+		'delay'
 	],
 	#classVars : [
 		'CurrentFilterTypeEq',

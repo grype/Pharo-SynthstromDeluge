@@ -41,7 +41,10 @@ Class {
 		'reverbAmount',
 		'sampleRateReduction',
 		'stutterRate',
-		'volume'
+		'volume',
+		'oscAPitchAdjust',
+		'oscBPitchAdjust',
+		'pitchAdjust'
 	],
 	#category : #'Synthstrom-Deluge'
 }

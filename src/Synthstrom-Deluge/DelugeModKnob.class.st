@@ -7,7 +7,9 @@ Class {
 	],
 	#classVars : [
 		'PatchAmountFromSourceCompressor',
-		'PatchAmountFromSourceLfo1'
+		'PatchAmountFromSourceEnvelope2',
+		'PatchAmountFromSourceLfo1',
+		'PatchAmountFromSourceLfo2'
 	],
 	#category : #'Synthstrom-Deluge'
 }

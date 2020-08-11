@@ -5,7 +5,15 @@ Class {
 		'cents',
 		'retrigPhase',
 		'transpose',
-		'type'
+		'type',
+		'fileName',
+		'loopMode',
+		'reversed',
+		'sampleRanges',
+		'timeStretchAmount',
+		'timeStretchEnable',
+		'oscillatorSync',
+		'zone'
 	],
 	#classVars : [
 		'TypeSample',

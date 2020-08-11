@@ -6,6 +6,12 @@ Class {
 		'numOctaves',
 		'syncLevel'
 	],
+	#classVars : [
+		'ModeBoth',
+		'ModeDown',
+		'ModeOff',
+		'ModeUp'
+	],
 	#category : #'Synthstrom-Deluge'
 }
 

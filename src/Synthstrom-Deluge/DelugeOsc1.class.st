@@ -10,10 +10,17 @@ Class {
 		'timeStretchEnable',
 		'transpose',
 		'type',
-		'zone'
+		'zone',
+		'retrigPhase',
+		'sampleRanges'
 	],
 	#classVars : [
-		'TypeSample'
+		'TypeAnalogSaw',
+		'TypeAnalogSquare',
+		'TypeSample',
+		'TypeSaw',
+		'TypeSine',
+		'TypeTriangle'
 	],
 	#category : #'Synthstrom-Deluge'
 }

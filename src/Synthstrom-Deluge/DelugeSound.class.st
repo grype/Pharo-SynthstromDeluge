@@ -475,7 +475,7 @@ DelugeSound >> descriptionOscillatorReset [
 { #category : #'magritte description' }
 DelugeSound >> descriptionPolyphonic [
 	<magritteDescription>
-	^ MANumberDescription new
+	^ MAStringDescription new
 		accessor: #polyphonic;
 		label: 'polyphonic';
 		priority: 4;

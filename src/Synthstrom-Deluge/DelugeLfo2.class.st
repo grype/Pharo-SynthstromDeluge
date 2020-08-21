@@ -1,8 +1,7 @@
 Class {
-	#name : #DelugeLfo1,
+	#name : #DelugeLfo2,
 	#superclass : #DelugeObject,
 	#instVars : [
-		'syncLevel',
 		'type'
 	],
 	#classVars : [
@@ -15,88 +14,67 @@ Class {
 }
 
 { #category : #accessing }
-DelugeLfo1 class >> typeSaw [
+DelugeLfo2 class >> typeSaw [
 	^ TypeSaw ifNil: [ TypeSaw := 'saw' ]
 ]
 
 { #category : #accessing }
-DelugeLfo1 class >> typeSine [
+DelugeLfo2 class >> typeSine [
 	^ TypeSine ifNil: [ TypeSine := 'sine' ]
 ]
 
 { #category : #accessing }
-DelugeLfo1 class >> typeSquare [
+DelugeLfo2 class >> typeSquare [
 	^ TypeSquare ifNil: [ TypeSquare := 'square' ]
 ]
 
 { #category : #accessing }
-DelugeLfo1 class >> typeTriangle [
+DelugeLfo2 class >> typeTriangle [
 	^ TypeTriangle ifNil: [ TypeTriangle := 'triangle' ]
 ]
 
 { #category : #accessing }
-DelugeLfo1 class >> xmlElementName [
-	^ 'lfo1'
+DelugeLfo2 class >> xmlElementName [
+	^ 'lfo2'
 ]
 
 { #category : #configuring }
-DelugeLfo1 >> beTypeSaw [
+DelugeLfo2 >> beTypeSaw [
 	type := self class typeSaw
 ]
 
 { #category : #configuring }
-DelugeLfo1 >> beTypeSine [
+DelugeLfo2 >> beTypeSine [
 	type := self class typeSine
 ]
 
 { #category : #configuring }
-DelugeLfo1 >> beTypeSquare [
+DelugeLfo2 >> beTypeSquare [
 	type := self class typeSquare
 ]
 
 { #category : #configuring }
-DelugeLfo1 >> beTypeTriangle [
+DelugeLfo2 >> beTypeTriangle [
 	type := self class typeTriangle
 ]
 
 { #category : #'magritte description' }
-DelugeLfo1 >> descriptionSyncLevel [
+DelugeLfo2 >> descriptionType [
 	<magritteDescription>
-	^ MANumberDescription new
-		accessor: #syncLevel;
-		label: 'syncLevel';
+	^ MAStringDescription new
+		accessor: #type;
+		label: 'type';
 		priority: 1;
 		beXmlElement;
 		yourself
 ]
 
-{ #category : #'magritte description' }
-DelugeLfo1 >> descriptionType [
-	<magritteDescription>
-	^ MAStringDescription new
-		accessor: #type;
-		label: 'type';
-		priority: 2;
-		beXmlElement;
-		yourself
-]
-
 { #category : #accessing }
-DelugeLfo1 >> syncLevel [
-	^ syncLevel
-]
-
-{ #category : #accessing }
-DelugeLfo1 >> syncLevel: anObject [
-	syncLevel := anObject
-]
-
-{ #category : #accessing }
-DelugeLfo1 >> type [
+DelugeLfo2 >> type [
 	^ type
 ]
 
 { #category : #accessing }
-DelugeLfo1 >> type: anObject [
+DelugeLfo2 >> type: anObject [
 	type := anObject
 ]

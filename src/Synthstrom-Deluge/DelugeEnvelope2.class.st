@@ -7,7 +7,7 @@ Class {
 		'release',
 		'sustain'
 	],
-	#category : #'Synthstrom-Deluge'
+	#category : #'Synthstrom-Deluge-Core'
 }
 
 { #category : #accessing }
@@ -38,10 +38,10 @@ DelugeEnvelope2 >> decay: anObject [
 { #category : #'magritte description' }
 DelugeEnvelope2 >> descriptionAttack [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #attack;
 		label: 'attack';
-		priority: 2;
+		priority: 4;
 		beXmlElement;
 		yourself
 ]
@@ -49,10 +49,10 @@ DelugeEnvelope2 >> descriptionAttack [
 { #category : #'magritte description' }
 DelugeEnvelope2 >> descriptionDecay [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #decay;
 		label: 'decay';
-		priority: 3;
+		priority: 2;
 		beXmlElement;
 		yourself
 ]
@@ -60,7 +60,7 @@ DelugeEnvelope2 >> descriptionDecay [
 { #category : #'magritte description' }
 DelugeEnvelope2 >> descriptionRelease [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #release;
 		label: 'release';
 		priority: 1;
@@ -71,10 +71,10 @@ DelugeEnvelope2 >> descriptionRelease [
 { #category : #'magritte description' }
 DelugeEnvelope2 >> descriptionSustain [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #sustain;
 		label: 'sustain';
-		priority: 4;
+		priority: 3;
 		beXmlElement;
 		yourself
 ]

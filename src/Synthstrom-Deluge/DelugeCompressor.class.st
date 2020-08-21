@@ -6,7 +6,7 @@ Class {
 		'release',
 		'syncLevel'
 	],
-	#category : #'Synthstrom-Deluge'
+	#category : #'Synthstrom-Deluge-Core'
 }
 
 { #category : #accessing }
@@ -30,7 +30,7 @@ DelugeCompressor >> descriptionAttack [
 	^ MANumberDescription new
 		accessor: #attack;
 		label: 'attack';
-		priority: 2;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]
@@ -41,7 +41,7 @@ DelugeCompressor >> descriptionRelease [
 	^ MANumberDescription new
 		accessor: #release;
 		label: 'release';
-		priority: 1;
+		priority: 2;
 		beXmlElement;
 		yourself
 ]

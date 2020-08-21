@@ -8,7 +8,7 @@ Class {
 		'transpose',
 		'zone'
 	],
-	#category : #'Synthstrom-Deluge'
+	#category : #'Synthstrom-Deluge-Core'
 }
 
 { #category : #accessing }
@@ -32,7 +32,7 @@ DelugeSampleRange >> descriptionCents [
 	^ MANumberDescription new
 		accessor: #cents;
 		label: 'cents';
-		priority: 5;
+		priority: 3;
 		beXmlElement;
 		yourself
 ]
@@ -43,7 +43,7 @@ DelugeSampleRange >> descriptionFileName [
 	^ MAStringDescription new
 		accessor: #fileName;
 		label: 'fileName';
-		priority: 2;
+		priority: 4;
 		beXmlElement;
 		yourself
 ]
@@ -54,7 +54,7 @@ DelugeSampleRange >> descriptionRangeTopNote [
 	^ MANumberDescription new
 		accessor: #rangeTopNote;
 		label: 'rangeTopNote';
-		priority: 4;
+		priority: 2;
 		beXmlElement;
 		yourself
 ]
@@ -76,7 +76,7 @@ DelugeSampleRange >> descriptionZone [
 	^ MAToOneRelationDescription new
 		accessor: #zone;
 		label: 'zone';
-		priority: 3;
+		priority: 5;
 		classes: { DelugeZone };
 		beXmlInlineElement;
 		yourself

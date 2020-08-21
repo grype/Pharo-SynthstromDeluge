@@ -7,7 +7,7 @@ Class {
 		'toModulator1',
 		'transpose'
 	],
-	#category : #'Synthstrom-Deluge'
+	#category : #'Synthstrom-Deluge-Core'
 }
 
 { #category : #accessing }
@@ -31,7 +31,7 @@ DelugeModulator2 >> descriptionCents [
 	^ MANumberDescription new
 		accessor: #cents;
 		label: 'cents';
-		priority: 2;
+		priority: 4;
 		beXmlElement;
 		yourself
 ]
@@ -42,7 +42,7 @@ DelugeModulator2 >> descriptionRetrigPhase [
 	^ MANumberDescription new
 		accessor: #retrigPhase;
 		label: 'retrigPhase';
-		priority: 1;
+		priority: 3;
 		beXmlElement;
 		yourself
 ]
@@ -53,7 +53,7 @@ DelugeModulator2 >> descriptionToModulator1 [
 	^ MANumberDescription new
 		accessor: #toModulator1;
 		label: 'toModulator1';
-		priority: 4;
+		priority: 2;
 		beXmlElement;
 		yourself
 ]
@@ -64,7 +64,7 @@ DelugeModulator2 >> descriptionTranspose [
 	^ MANumberDescription new
 		accessor: #transpose;
 		label: 'transpose';
-		priority: 3;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]

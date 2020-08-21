@@ -2,6 +2,7 @@ Class {
 	#name : #DelugeSound,
 	#superclass : #DelugeObject,
 	#instVars : [
+		'arpeggiator',
 		'clippingAmount',
 		'compressor',
 		'defaultParams',
@@ -13,17 +14,14 @@ Class {
 		'modFXType',
 		'modKnobs',
 		'mode',
-		'name',
 		'osc1',
 		'osc2',
 		'polyphonic',
 		'unison',
 		'voicePriority',
-		'arpeggiator',
 		'modulator1',
-		'oscillatorReset',
 		'modulator2',
-		'sideChainSend',
+		'oscillatorReset',
 		'transpose'
 	],
 	#classVars : [
@@ -39,12 +37,11 @@ Class {
 		'ModeRingmod',
 		'ModeSubtractive',
 		'PolyphonicAuto',
-		'PolyphonicChoke',
 		'PolyphonicLegato',
 		'PolyphonicMono',
 		'PolyphonicPoly'
 	],
-	#category : #'Synthstrom-Deluge'
+	#category : #'Synthstrom-Deluge-Core'
 }
 
 { #category : #accessing }
@@ -106,11 +103,6 @@ DelugeSound class >> modeSubtractive [
 { #category : #accessing }
 DelugeSound class >> polyphonicAuto [
 	^ PolyphonicAuto ifNil: [ PolyphonicAuto := 'auto' ]
-]
-
-{ #category : #accessing }
-DelugeSound class >> polyphonicChoke [
-	^ PolyphonicChoke ifNil: [ PolyphonicChoke := 'choke' ]
 ]
 
 { #category : #accessing }
@@ -204,11 +196,6 @@ DelugeSound >> bePolyphonicAuto [
 ]
 
 { #category : #configuring }
-DelugeSound >> bePolyphonicChoke [
-	polyphonic := self class polyphonicChoke
-]
-
-{ #category : #configuring }
 DelugeSound >> bePolyphonicLegato [
 	polyphonic := self class polyphonicLegato
 ]
@@ -269,7 +256,7 @@ DelugeSound >> descriptionArpeggiator [
 	^ MAToOneRelationDescription new
 		accessor: #arpeggiator;
 		label: 'arpeggiator';
-		priority: 2;
+		priority: 5;
 		classes: { DelugeArpeggiator };
 		beXmlInlineElement;
 		yourself
@@ -281,7 +268,7 @@ DelugeSound >> descriptionClippingAmount [
 	^ MANumberDescription new
 		accessor: #clippingAmount;
 		label: 'clippingAmount';
-		priority: 11;
+		priority: 16;
 		beXmlElement;
 		yourself
 ]
@@ -292,7 +279,7 @@ DelugeSound >> descriptionCompressor [
 	^ MAToOneRelationDescription new
 		accessor: #compressor;
 		label: 'compressor';
-		priority: 14;
+		priority: 10;
 		classes: { DelugeCompressor };
 		beXmlInlineElement;
 		yourself
@@ -304,7 +291,7 @@ DelugeSound >> descriptionDefaultParams [
 	^ MAToOneRelationDescription new
 		accessor: #defaultParams;
 		label: 'defaultParams';
-		priority: 8;
+		priority: 2;
 		classes: { DelugeDefaultParams };
 		beXmlInlineElement;
 		yourself
@@ -316,7 +303,7 @@ DelugeSound >> descriptionDelay [
 	^ MAToOneRelationDescription new
 		accessor: #delay;
 		label: 'delay';
-		priority: 5;
+		priority: 6;
 		classes: { DelugeDelay };
 		beXmlInlineElement;
 		yourself
@@ -328,7 +315,7 @@ DelugeSound >> descriptionLfo1 [
 	^ MAToOneRelationDescription new
 		accessor: #lfo1;
 		label: 'lfo1';
-		priority: 9;
+		priority: 8;
 		classes: { DelugeLfo1 };
 		beXmlInlineElement;
 		yourself
@@ -337,12 +324,12 @@ DelugeSound >> descriptionLfo1 [
 { #category : #'magritte description' }
 DelugeSound >> descriptionLfo2 [
 	<magritteDescription>
-	^ MAToManyRelationDescription new
+	^ MAToOneRelationDescription new
 		accessor: #lfo2;
 		label: 'lfo2';
-		priority: 3;
-		classes: { DelugeType };
-		beXmlElement;
+		priority: 4;
+		classes: { DelugeLfo2 };
+		beXmlInlineElement;
 		yourself
 ]
 
@@ -352,7 +339,7 @@ DelugeSound >> descriptionLpfMode [
 	^ MAStringDescription new
 		accessor: #lpfMode;
 		label: 'lpfMode';
-		priority: 15;
+		priority: 14;
 		beXmlElement;
 		yourself
 ]
@@ -374,7 +361,7 @@ DelugeSound >> descriptionModFXType [
 	^ MAStringDescription new
 		accessor: #modFXType;
 		label: 'modFXType';
-		priority: 13;
+		priority: 12;
 		beXmlElement;
 		yourself
 ]
@@ -385,7 +372,7 @@ DelugeSound >> descriptionModKnobs [
 	^ MAToManyRelationDescription new
 		accessor: #modKnobs;
 		label: 'modKnobs';
-		priority: 10;
+		priority: 11;
 		classes: { DelugeModKnob };
 		beXmlElement;
 		yourself
@@ -397,7 +384,7 @@ DelugeSound >> descriptionMode [
 	^ MAStringDescription new
 		accessor: #mode;
 		label: 'mode';
-		priority: 6;
+		priority: 7;
 		beXmlElement;
 		yourself
 ]
@@ -408,7 +395,7 @@ DelugeSound >> descriptionModulator1 [
 	^ MAToOneRelationDescription new
 		accessor: #modulator1;
 		label: 'modulator1';
-		priority: 13;
+		priority: 9;
 		classes: { DelugeModulator1 };
 		beXmlInlineElement;
 		yourself
@@ -420,20 +407,9 @@ DelugeSound >> descriptionModulator2 [
 	^ MAToOneRelationDescription new
 		accessor: #modulator2;
 		label: 'modulator2';
-		priority: 11;
+		priority: 4;
 		classes: { DelugeModulator2 };
 		beXmlInlineElement;
-		yourself
-]
-
-{ #category : #'magritte description' }
-DelugeSound >> descriptionName [
-	<magritteDescription>
-	^ MAStringDescription new
-		accessor: #name;
-		label: 'name';
-		priority: 12;
-		beXmlElement;
 		yourself
 ]
 
@@ -443,7 +419,7 @@ DelugeSound >> descriptionOsc1 [
 	^ MAToOneRelationDescription new
 		accessor: #osc1;
 		label: 'osc1';
-		priority: 2;
+		priority: 3;
 		classes: { DelugeOsc1 };
 		beXmlInlineElement;
 		yourself
@@ -455,7 +431,7 @@ DelugeSound >> descriptionOsc2 [
 	^ MAToOneRelationDescription new
 		accessor: #osc2;
 		label: 'osc2';
-		priority: 16;
+		priority: 15;
 		classes: { DelugeOsc2 };
 		beXmlInlineElement;
 		yourself
@@ -467,7 +443,7 @@ DelugeSound >> descriptionOscillatorReset [
 	^ MANumberDescription new
 		accessor: #oscillatorReset;
 		label: 'oscillatorReset';
-		priority: 15;
+		priority: 16;
 		beXmlElement;
 		yourself
 ]
@@ -478,18 +454,7 @@ DelugeSound >> descriptionPolyphonic [
 	^ MAStringDescription new
 		accessor: #polyphonic;
 		label: 'polyphonic';
-		priority: 4;
-		beXmlElement;
-		yourself
-]
-
-{ #category : #'magritte description' }
-DelugeSound >> descriptionSideChainSend [
-	<magritteDescription>
-	^ MANumberDescription new
-		accessor: #sideChainSend;
-		label: 'sideChainSend';
-		priority: 13;
+		priority: 17;
 		beXmlElement;
 		yourself
 ]
@@ -500,7 +465,7 @@ DelugeSound >> descriptionTranspose [
 	^ MANumberDescription new
 		accessor: #transpose;
 		label: 'transpose';
-		priority: 5;
+		priority: 16;
 		beXmlElement;
 		yourself
 ]
@@ -511,7 +476,7 @@ DelugeSound >> descriptionUnison [
 	^ MAToOneRelationDescription new
 		accessor: #unison;
 		label: 'unison';
-		priority: 7;
+		priority: 13;
 		classes: { DelugeUnison };
 		beXmlInlineElement;
 		yourself
@@ -523,7 +488,7 @@ DelugeSound >> descriptionVoicePriority [
 	^ MANumberDescription new
 		accessor: #voicePriority;
 		label: 'voicePriority';
-		priority: 17;
+		priority: 9;
 		beXmlElement;
 		yourself
 ]
@@ -619,16 +584,6 @@ DelugeSound >> modulator2: anObject [
 ]
 
 { #category : #accessing }
-DelugeSound >> name [
-	^ name
-]
-
-{ #category : #accessing }
-DelugeSound >> name: anObject [
-	name := anObject
-]
-
-{ #category : #accessing }
 DelugeSound >> osc1 [
 	^ osc1
 ]
@@ -666,16 +621,6 @@ DelugeSound >> polyphonic [
 { #category : #accessing }
 DelugeSound >> polyphonic: anObject [
 	polyphonic := anObject
-]
-
-{ #category : #accessing }
-DelugeSound >> sideChainSend [
-	^ sideChainSend
-]
-
-{ #category : #accessing }
-DelugeSound >> sideChainSend: anObject [
-	sideChainSend := anObject
 ]
 
 { #category : #accessing }

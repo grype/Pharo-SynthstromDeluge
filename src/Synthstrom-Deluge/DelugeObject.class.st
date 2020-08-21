@@ -3,7 +3,7 @@ Class {
 	#superclass : #Object,
 	#traits : 'TMXDescription',
 	#classTraits : 'TMXDescription classTrait',
-	#category : #'Synthstrom-Deluge'
+	#category : #'Synthstrom-Deluge-Core'
 }
 
 { #category : #testing }
@@ -33,7 +33,7 @@ DelugeObject class >> generateClassesFromFile: aFile containerNodeName: containe
 	| content dom gen |
 	content := self wrapXMLString: aFile contents in: containerNodeName.
 	dom := XMLDOMParser parse: content.
-	gen := XOGStructureGenerator new.
+	gen := DelugeStructureGenerator new.
 	gen packageName: self package name asString.
 	gen classPrefix: 'Deluge'.
 	gen rootClassName: self name asString.

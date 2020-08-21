@@ -2,17 +2,16 @@ Class {
 	#name : #DelugeOsc1,
 	#superclass : #DelugeObject,
 	#instVars : [
-		'cents',
-		'fileName',
 		'loopMode',
 		'reversed',
+		'sampleRanges',
 		'timeStretchAmount',
 		'timeStretchEnable',
-		'transpose',
 		'type',
-		'zone',
+		'cents',
 		'retrigPhase',
-		'sampleRanges'
+		'transpose',
+		'zone'
 	],
 	#classVars : [
 		'TypeAnalogSaw',
@@ -20,9 +19,10 @@ Class {
 		'TypeSample',
 		'TypeSaw',
 		'TypeSine',
+		'TypeSquare',
 		'TypeTriangle'
 	],
-	#category : #'Synthstrom-Deluge'
+	#category : #'Synthstrom-Deluge-Core'
 }
 
 { #category : #accessing }
@@ -116,18 +116,7 @@ DelugeOsc1 >> descriptionCents [
 	^ MANumberDescription new
 		accessor: #cents;
 		label: 'cents';
-		priority: 4;
-		beXmlElement;
-		yourself
-]
-
-{ #category : #'magritte description' }
-DelugeOsc1 >> descriptionFileName [
-	<magritteDescription>
-	^ MAStringDescription new
-		accessor: #fileName;
-		label: 'fileName';
-		priority: 3;
+		priority: 2;
 		beXmlElement;
 		yourself
 ]
@@ -138,7 +127,7 @@ DelugeOsc1 >> descriptionLoopMode [
 	^ MANumberDescription new
 		accessor: #loopMode;
 		label: 'loopMode';
-		priority: 2;
+		priority: 6;
 		beXmlElement;
 		yourself
 ]
@@ -149,7 +138,7 @@ DelugeOsc1 >> descriptionRetrigPhase [
 	^ MANumberDescription new
 		accessor: #retrigPhase;
 		label: 'retrigPhase';
-		priority: 2;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]
@@ -160,7 +149,7 @@ DelugeOsc1 >> descriptionReversed [
 	^ MANumberDescription new
 		accessor: #reversed;
 		label: 'reversed';
-		priority: 1;
+		priority: 5;
 		beXmlElement;
 		yourself
 ]
@@ -171,7 +160,7 @@ DelugeOsc1 >> descriptionSampleRanges [
 	^ MAToManyRelationDescription new
 		accessor: #sampleRanges;
 		label: 'sampleRanges';
-		priority: 2;
+		priority: 3;
 		classes: { DelugeSampleRange };
 		beXmlElement;
 		yourself
@@ -183,7 +172,7 @@ DelugeOsc1 >> descriptionTimeStretchAmount [
 	^ MANumberDescription new
 		accessor: #timeStretchAmount;
 		label: 'timeStretchAmount';
-		priority: 6;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]
@@ -194,7 +183,7 @@ DelugeOsc1 >> descriptionTimeStretchEnable [
 	^ MANumberDescription new
 		accessor: #timeStretchEnable;
 		label: 'timeStretchEnable';
-		priority: 8;
+		priority: 2;
 		beXmlElement;
 		yourself
 ]
@@ -205,7 +194,7 @@ DelugeOsc1 >> descriptionTranspose [
 	^ MANumberDescription new
 		accessor: #transpose;
 		label: 'transpose';
-		priority: 9;
+		priority: 3;
 		beXmlElement;
 		yourself
 ]
@@ -216,7 +205,7 @@ DelugeOsc1 >> descriptionType [
 	^ MAStringDescription new
 		accessor: #type;
 		label: 'type';
-		priority: 7;
+		priority: 4;
 		beXmlElement;
 		yourself
 ]
@@ -231,16 +220,6 @@ DelugeOsc1 >> descriptionZone [
 		classes: { DelugeZone };
 		beXmlInlineElement;
 		yourself
-]
-
-{ #category : #accessing }
-DelugeOsc1 >> fileName [
-	^ fileName
-]
-
-{ #category : #accessing }
-DelugeOsc1 >> fileName: anObject [
-	fileName := anObject
 ]
 
 { #category : #accessing }

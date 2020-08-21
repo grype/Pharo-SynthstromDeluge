@@ -2,14 +2,14 @@ Class {
 	#name : #DelugeZone,
 	#superclass : #DelugeObject,
 	#instVars : [
+		'endSamplePos',
+		'startSamplePos',
+		'endLoopPos',
 		'endMilliseconds',
 		'startMilliseconds',
-		'endLoopPos',
-		'startLoopPos',
-		'endSamplePos',
-		'startSamplePos'
+		'startLoopPos'
 	],
-	#category : #'Synthstrom-Deluge'
+	#category : #'Synthstrom-Deluge-Core'
 }
 
 { #category : #accessing }
@@ -34,7 +34,7 @@ DelugeZone >> descriptionEndMilliseconds [
 	^ MANumberDescription new
 		accessor: #endMilliseconds;
 		label: 'endMilliseconds';
-		priority: 2;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]
@@ -45,7 +45,7 @@ DelugeZone >> descriptionEndSamplePos [
 	^ MANumberDescription new
 		accessor: #endSamplePos;
 		label: 'endSamplePos';
-		priority: 4;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]
@@ -56,7 +56,7 @@ DelugeZone >> descriptionStartLoopPos [
 	^ MANumberDescription new
 		accessor: #startLoopPos;
 		label: 'startLoopPos';
-		priority: 5;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]
@@ -67,7 +67,7 @@ DelugeZone >> descriptionStartMilliseconds [
 	^ MANumberDescription new
 		accessor: #startMilliseconds;
 		label: 'startMilliseconds';
-		priority: 1;
+		priority: 2;
 		beXmlElement;
 		yourself
 ]
@@ -78,7 +78,7 @@ DelugeZone >> descriptionStartSamplePos [
 	^ MANumberDescription new
 		accessor: #startSamplePos;
 		label: 'startSamplePos';
-		priority: 3;
+		priority: 2;
 		beXmlElement;
 		yourself
 ]

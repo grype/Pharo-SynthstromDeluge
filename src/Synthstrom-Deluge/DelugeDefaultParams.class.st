@@ -8,18 +8,15 @@ Class {
 		'carrier1Feedback',
 		'carrier2Feedback',
 		'compressorShape',
-		'delay',
 		'delayFeedback',
 		'delayRate',
 		'envelope1',
 		'envelope2',
 		'equalizer',
-		'hpf',
 		'hpfFrequency',
 		'hpfResonance',
 		'lfo1Rate',
 		'lfo2Rate',
-		'lpf',
 		'lpfFrequency',
 		'lpfResonance',
 		'modFXDepth',
@@ -43,10 +40,9 @@ Class {
 		'stutterRate',
 		'volume',
 		'oscAPitchAdjust',
-		'oscBPitchAdjust',
-		'pitchAdjust'
+		'oscBPitchAdjust'
 	],
-	#category : #'Synthstrom-Deluge'
+	#category : #'Synthstrom-Deluge-Core'
 }
 
 { #category : #accessing }
@@ -115,16 +111,6 @@ DelugeDefaultParams >> compressorShape: anObject [
 ]
 
 { #category : #accessing }
-DelugeDefaultParams >> delay [
-	^ delay
-]
-
-{ #category : #accessing }
-DelugeDefaultParams >> delay: anObject [
-	delay := anObject
-]
-
-{ #category : #accessing }
 DelugeDefaultParams >> delayFeedback [
 	^ delayFeedback
 ]
@@ -147,10 +133,10 @@ DelugeDefaultParams >> delayRate: anObject [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionArpeggiatorGate [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #arpeggiatorGate;
 		label: 'arpeggiatorGate';
-		priority: 11;
+		priority: 24;
 		beXmlElement;
 		yourself
 ]
@@ -158,10 +144,10 @@ DelugeDefaultParams >> descriptionArpeggiatorGate [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionArpeggiatorRate [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #arpeggiatorRate;
 		label: 'arpeggiatorRate';
-		priority: 6;
+		priority: 22;
 		beXmlElement;
 		yourself
 ]
@@ -169,10 +155,10 @@ DelugeDefaultParams >> descriptionArpeggiatorRate [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionBitCrush [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #bitCrush;
 		label: 'bitCrush';
-		priority: 18;
+		priority: 2;
 		beXmlElement;
 		yourself
 ]
@@ -180,10 +166,10 @@ DelugeDefaultParams >> descriptionBitCrush [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionCarrier1Feedback [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #carrier1Feedback;
 		label: 'carrier1Feedback';
-		priority: 30;
+		priority: 7;
 		beXmlElement;
 		yourself
 ]
@@ -191,10 +177,10 @@ DelugeDefaultParams >> descriptionCarrier1Feedback [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionCarrier2Feedback [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #carrier2Feedback;
 		label: 'carrier2Feedback';
-		priority: 34;
+		priority: 12;
 		beXmlElement;
 		yourself
 ]
@@ -202,33 +188,21 @@ DelugeDefaultParams >> descriptionCarrier2Feedback [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionCompressorShape [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #compressorShape;
 		label: 'compressorShape';
-		priority: 1;
+		priority: 18;
 		beXmlElement;
-		yourself
-]
-
-{ #category : #'magritte description' }
-DelugeDefaultParams >> descriptionDelay [
-	<magritteDescription>
-	^ MAToOneRelationDescription new
-		accessor: #delay;
-		label: 'delay';
-		priority: 3;
-		classes: { DelugeDelay };
-		beXmlInlineElement;
 		yourself
 ]
 
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionDelayFeedback [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #delayFeedback;
 		label: 'delayFeedback';
-		priority: 37;
+		priority: 28;
 		beXmlElement;
 		yourself
 ]
@@ -236,10 +210,10 @@ DelugeDefaultParams >> descriptionDelayFeedback [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionDelayRate [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #delayRate;
 		label: 'delayRate';
-		priority: 4;
+		priority: 20;
 		beXmlElement;
 		yourself
 ]
@@ -250,7 +224,7 @@ DelugeDefaultParams >> descriptionEnvelope1 [
 	^ MAToOneRelationDescription new
 		accessor: #envelope1;
 		label: 'envelope1';
-		priority: 21;
+		priority: 32;
 		classes: { DelugeEnvelope1 };
 		beXmlInlineElement;
 		yourself
@@ -262,7 +236,7 @@ DelugeDefaultParams >> descriptionEnvelope2 [
 	^ MAToOneRelationDescription new
 		accessor: #envelope2;
 		label: 'envelope2';
-		priority: 12;
+		priority: 21;
 		classes: { DelugeEnvelope2 };
 		beXmlInlineElement;
 		yourself
@@ -274,20 +248,8 @@ DelugeDefaultParams >> descriptionEqualizer [
 	^ MAToOneRelationDescription new
 		accessor: #equalizer;
 		label: 'equalizer';
-		priority: 33;
+		priority: 37;
 		classes: { DelugeEqualizer };
-		beXmlInlineElement;
-		yourself
-]
-
-{ #category : #'magritte description' }
-DelugeDefaultParams >> descriptionHpf [
-	<magritteDescription>
-	^ MAToOneRelationDescription new
-		accessor: #hpf;
-		label: 'hpf';
-		priority: 9;
-		classes: { DelugeHpf };
 		beXmlInlineElement;
 		yourself
 ]
@@ -295,10 +257,10 @@ DelugeDefaultParams >> descriptionHpf [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionHpfFrequency [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #hpfFrequency;
 		label: 'hpfFrequency';
-		priority: 20;
+		priority: 8;
 		beXmlElement;
 		yourself
 ]
@@ -306,10 +268,10 @@ DelugeDefaultParams >> descriptionHpfFrequency [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionHpfResonance [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #hpfResonance;
 		label: 'hpfResonance';
-		priority: 2;
+		priority: 26;
 		beXmlElement;
 		yourself
 ]
@@ -317,10 +279,10 @@ DelugeDefaultParams >> descriptionHpfResonance [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionLfo1Rate [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #lfo1Rate;
 		label: 'lfo1Rate';
-		priority: 5;
+		priority: 30;
 		beXmlElement;
 		yourself
 ]
@@ -328,33 +290,21 @@ DelugeDefaultParams >> descriptionLfo1Rate [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionLfo2Rate [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #lfo2Rate;
 		label: 'lfo2Rate';
-		priority: 3;
+		priority: 27;
 		beXmlElement;
-		yourself
-]
-
-{ #category : #'magritte description' }
-DelugeDefaultParams >> descriptionLpf [
-	<magritteDescription>
-	^ MAToOneRelationDescription new
-		accessor: #lpf;
-		label: 'lpf';
-		priority: 14;
-		classes: { DelugeLpf };
-		beXmlInlineElement;
 		yourself
 ]
 
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionLpfFrequency [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #lpfFrequency;
 		label: 'lpfFrequency';
-		priority: 9;
+		priority: 33;
 		beXmlElement;
 		yourself
 ]
@@ -362,10 +312,10 @@ DelugeDefaultParams >> descriptionLpfFrequency [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionLpfResonance [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #lpfResonance;
 		label: 'lpfResonance';
-		priority: 27;
+		priority: 16;
 		beXmlElement;
 		yourself
 ]
@@ -373,10 +323,10 @@ DelugeDefaultParams >> descriptionLpfResonance [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionModFXDepth [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #modFXDepth;
 		label: 'modFXDepth';
-		priority: 31;
+		priority: 34;
 		beXmlElement;
 		yourself
 ]
@@ -384,10 +334,10 @@ DelugeDefaultParams >> descriptionModFXDepth [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionModFXFeedback [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #modFXFeedback;
 		label: 'modFXFeedback';
-		priority: 14;
+		priority: 11;
 		beXmlElement;
 		yourself
 ]
@@ -395,10 +345,10 @@ DelugeDefaultParams >> descriptionModFXFeedback [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionModFXOffset [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #modFXOffset;
 		label: 'modFXOffset';
-		priority: 17;
+		priority: 5;
 		beXmlElement;
 		yourself
 ]
@@ -406,10 +356,10 @@ DelugeDefaultParams >> descriptionModFXOffset [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionModFXRate [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #modFXRate;
 		label: 'modFXRate';
-		priority: 15;
+		priority: 31;
 		beXmlElement;
 		yourself
 ]
@@ -417,10 +367,10 @@ DelugeDefaultParams >> descriptionModFXRate [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionModulator1Amount [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #modulator1Amount;
 		label: 'modulator1Amount';
-		priority: 36;
+		priority: 13;
 		beXmlElement;
 		yourself
 ]
@@ -428,10 +378,10 @@ DelugeDefaultParams >> descriptionModulator1Amount [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionModulator1Feedback [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #modulator1Feedback;
 		label: 'modulator1Feedback';
-		priority: 28;
+		priority: 6;
 		beXmlElement;
 		yourself
 ]
@@ -439,10 +389,10 @@ DelugeDefaultParams >> descriptionModulator1Feedback [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionModulator2Amount [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #modulator2Amount;
 		label: 'modulator2Amount';
-		priority: 8;
+		priority: 25;
 		beXmlElement;
 		yourself
 ]
@@ -450,10 +400,10 @@ DelugeDefaultParams >> descriptionModulator2Amount [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionModulator2Feedback [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #modulator2Feedback;
 		label: 'modulator2Feedback';
-		priority: 29;
+		priority: 10;
 		beXmlElement;
 		yourself
 ]
@@ -461,10 +411,10 @@ DelugeDefaultParams >> descriptionModulator2Feedback [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionNoiseVolume [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #noiseVolume;
 		label: 'noiseVolume';
-		priority: 10;
+		priority: 36;
 		beXmlElement;
 		yourself
 ]
@@ -472,10 +422,10 @@ DelugeDefaultParams >> descriptionNoiseVolume [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionOscAPitchAdjust [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #oscAPitchAdjust;
 		label: 'oscAPitchAdjust';
-		priority: 27;
+		priority: 33;
 		beXmlElement;
 		yourself
 ]
@@ -483,10 +433,10 @@ DelugeDefaultParams >> descriptionOscAPitchAdjust [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionOscAPulseWidth [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #oscAPulseWidth;
 		label: 'oscAPulseWidth';
-		priority: 24;
+		priority: 15;
 		beXmlElement;
 		yourself
 ]
@@ -494,10 +444,10 @@ DelugeDefaultParams >> descriptionOscAPulseWidth [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionOscAVolume [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #oscAVolume;
 		label: 'oscAVolume';
-		priority: 35;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]
@@ -505,10 +455,10 @@ DelugeDefaultParams >> descriptionOscAVolume [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionOscBPitchAdjust [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #oscBPitchAdjust;
 		label: 'oscBPitchAdjust';
-		priority: 1;
+		priority: 10;
 		beXmlElement;
 		yourself
 ]
@@ -516,10 +466,10 @@ DelugeDefaultParams >> descriptionOscBPitchAdjust [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionOscBPulseWidth [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #oscBPulseWidth;
 		label: 'oscBPulseWidth';
-		priority: 19;
+		priority: 9;
 		beXmlElement;
 		yourself
 ]
@@ -527,10 +477,10 @@ DelugeDefaultParams >> descriptionOscBPulseWidth [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionOscBVolume [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #oscBVolume;
 		label: 'oscBVolume';
-		priority: 7;
+		priority: 19;
 		beXmlElement;
 		yourself
 ]
@@ -538,10 +488,10 @@ DelugeDefaultParams >> descriptionOscBVolume [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionPan [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #pan;
 		label: 'pan';
-		priority: 23;
+		priority: 4;
 		beXmlElement;
 		yourself
 ]
@@ -549,33 +499,22 @@ DelugeDefaultParams >> descriptionPan [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionPatchCables [
 	<magritteDescription>
-	^ MAToManyRelationDescription new
+	^ MAToOneRelationDescription new
 		accessor: #patchCables;
 		label: 'patchCables';
-		priority: 22;
-		classes: { DelugePatchCable };
-		beXmlElement;
-		yourself
-]
-
-{ #category : #'magritte description' }
-DelugeDefaultParams >> descriptionPitchAdjust [
-	<magritteDescription>
-	^ MAStringDescription new
-		accessor: #pitchAdjust;
-		label: 'pitchAdjust';
-		priority: 19;
-		beXmlElement;
+		priority: 14;
+		classes: { DelugePatchCables };
+		beXmlInlineElement;
 		yourself
 ]
 
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionPortamento [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #portamento;
 		label: 'portamento';
-		priority: 25;
+		priority: 35;
 		beXmlElement;
 		yourself
 ]
@@ -583,10 +522,10 @@ DelugeDefaultParams >> descriptionPortamento [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionReverbAmount [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #reverbAmount;
 		label: 'reverbAmount';
-		priority: 16;
+		priority: 3;
 		beXmlElement;
 		yourself
 ]
@@ -594,10 +533,10 @@ DelugeDefaultParams >> descriptionReverbAmount [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionSampleRateReduction [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #sampleRateReduction;
 		label: 'sampleRateReduction';
-		priority: 13;
+		priority: 23;
 		beXmlElement;
 		yourself
 ]
@@ -605,10 +544,10 @@ DelugeDefaultParams >> descriptionSampleRateReduction [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionStutterRate [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #stutterRate;
 		label: 'stutterRate';
-		priority: 32;
+		priority: 17;
 		beXmlElement;
 		yourself
 ]
@@ -616,10 +555,10 @@ DelugeDefaultParams >> descriptionStutterRate [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionVolume [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #volume;
 		label: 'volume';
-		priority: 26;
+		priority: 29;
 		beXmlElement;
 		yourself
 ]
@@ -652,16 +591,6 @@ DelugeDefaultParams >> equalizer [
 { #category : #accessing }
 DelugeDefaultParams >> equalizer: anObject [
 	equalizer := anObject
-]
-
-{ #category : #accessing }
-DelugeDefaultParams >> hpf [
-	^ hpf
-]
-
-{ #category : #accessing }
-DelugeDefaultParams >> hpf: anObject [
-	hpf := anObject
 ]
 
 { #category : #accessing }
@@ -702,16 +631,6 @@ DelugeDefaultParams >> lfo2Rate [
 { #category : #accessing }
 DelugeDefaultParams >> lfo2Rate: anObject [
 	lfo2Rate := anObject
-]
-
-{ #category : #accessing }
-DelugeDefaultParams >> lpf [
-	^ lpf
-]
-
-{ #category : #accessing }
-DelugeDefaultParams >> lpf: anObject [
-	lpf := anObject
 ]
 
 { #category : #accessing }
@@ -902,16 +821,6 @@ DelugeDefaultParams >> patchCables [
 { #category : #accessing }
 DelugeDefaultParams >> patchCables: anObject [
 	patchCables := anObject
-]
-
-{ #category : #accessing }
-DelugeDefaultParams >> pitchAdjust [
-	^ pitchAdjust
-]
-
-{ #category : #accessing }
-DelugeDefaultParams >> pitchAdjust: anObject [
-	pitchAdjust := anObject
 ]
 
 { #category : #accessing }

@@ -51,7 +51,7 @@ Class {
 		'SourceRandom',
 		'SourceVelocity'
 	],
-	#category : #'Synthstrom-Deluge'
+	#category : #'Synthstrom-Deluge-Core'
 }
 
 { #category : #accessing }
@@ -492,7 +492,7 @@ DelugePatchCable >> beSourceVelocity [
 { #category : #'magritte description' }
 DelugePatchCable >> descriptionAmount [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #amount;
 		label: 'amount';
 		priority: 2;
@@ -517,7 +517,7 @@ DelugePatchCable >> descriptionRangeAdjustable [
 	^ MANumberDescription new
 		accessor: #rangeAdjustable;
 		label: 'rangeAdjustable';
-		priority: 1;
+		priority: 4;
 		beXmlElement;
 		yourself
 ]

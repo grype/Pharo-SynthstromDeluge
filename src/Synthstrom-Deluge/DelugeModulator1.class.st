@@ -6,7 +6,7 @@ Class {
 		'retrigPhase',
 		'transpose'
 	],
-	#category : #'Synthstrom-Deluge'
+	#category : #'Synthstrom-Deluge-Core'
 }
 
 { #category : #accessing }
@@ -30,7 +30,7 @@ DelugeModulator1 >> descriptionCents [
 	^ MANumberDescription new
 		accessor: #cents;
 		label: 'cents';
-		priority: 3;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]
@@ -41,7 +41,7 @@ DelugeModulator1 >> descriptionRetrigPhase [
 	^ MANumberDescription new
 		accessor: #retrigPhase;
 		label: 'retrigPhase';
-		priority: 1;
+		priority: 3;
 		beXmlElement;
 		yourself
 ]

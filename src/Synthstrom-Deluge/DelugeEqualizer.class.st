@@ -7,7 +7,7 @@ Class {
 		'treble',
 		'trebleFrequency'
 	],
-	#category : #'Synthstrom-Deluge'
+	#category : #'Synthstrom-Deluge-Core'
 }
 
 { #category : #accessing }
@@ -38,7 +38,7 @@ DelugeEqualizer >> bassFrequency: anObject [
 { #category : #'magritte description' }
 DelugeEqualizer >> descriptionBass [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #bass;
 		label: 'bass';
 		priority: 2;
@@ -49,7 +49,7 @@ DelugeEqualizer >> descriptionBass [
 { #category : #'magritte description' }
 DelugeEqualizer >> descriptionBassFrequency [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #bassFrequency;
 		label: 'bassFrequency';
 		priority: 4;
@@ -60,10 +60,10 @@ DelugeEqualizer >> descriptionBassFrequency [
 { #category : #'magritte description' }
 DelugeEqualizer >> descriptionTreble [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #treble;
 		label: 'treble';
-		priority: 3;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]
@@ -71,10 +71,10 @@ DelugeEqualizer >> descriptionTreble [
 { #category : #'magritte description' }
 DelugeEqualizer >> descriptionTrebleFrequency [
 	<magritteDescription>
-	^ MAStringDescription new
+	^ DelugeHexDescription new
 		accessor: #trebleFrequency;
 		label: 'trebleFrequency';
-		priority: 1;
+		priority: 3;
 		beXmlElement;
 		yourself
 ]

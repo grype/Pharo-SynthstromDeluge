@@ -5,10 +5,7 @@ Class {
 		'type'
 	],
 	#classVars : [
-		'TypeSaw',
-		'TypeSine',
-		'TypeSquare',
-		'TypeTriangle'
+		'TypeSine'
 	],
 	#category : #'Synthstrom-Deluge-Core'
 }

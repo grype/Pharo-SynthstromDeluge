@@ -2,12 +2,12 @@ Class {
 	#name : #DelugeZone,
 	#superclass : #DelugeObject,
 	#instVars : [
-		'endSamplePos',
-		'startSamplePos',
-		'endLoopPos',
 		'endMilliseconds',
 		'startMilliseconds',
-		'startLoopPos'
+		'endLoopPos',
+		'endSamplePos',
+		'startLoopPos',
+		'startSamplePos'
 	],
 	#category : #'Synthstrom-Deluge-Core'
 }

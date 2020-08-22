@@ -2,25 +2,20 @@ Class {
 	#name : #DelugeOsc1,
 	#superclass : #DelugeObject,
 	#instVars : [
+		'cents',
+		'fileName',
 		'loopMode',
 		'reversed',
-		'sampleRanges',
 		'timeStretchAmount',
 		'timeStretchEnable',
-		'type',
-		'cents',
-		'retrigPhase',
 		'transpose',
-		'zone'
+		'type',
+		'zone',
+		'sampleRanges',
+		'retrigPhase'
 	],
 	#classVars : [
-		'TypeAnalogSaw',
-		'TypeAnalogSquare',
-		'TypeSample',
-		'TypeSaw',
-		'TypeSine',
-		'TypeSquare',
-		'TypeTriangle'
+		'TypeSample'
 	],
 	#category : #'Synthstrom-Deluge-Core'
 }
@@ -116,7 +111,18 @@ DelugeOsc1 >> descriptionCents [
 	^ MANumberDescription new
 		accessor: #cents;
 		label: 'cents';
-		priority: 2;
+		priority: 7;
+		beXmlElement;
+		yourself
+]
+
+{ #category : #'magritte description' }
+DelugeOsc1 >> descriptionFileName [
+	<magritteDescription>
+	^ MAStringDescription new
+		accessor: #fileName;
+		label: 'fileName';
+		priority: 3;
 		beXmlElement;
 		yourself
 ]
@@ -127,7 +133,7 @@ DelugeOsc1 >> descriptionLoopMode [
 	^ MANumberDescription new
 		accessor: #loopMode;
 		label: 'loopMode';
-		priority: 6;
+		priority: 9;
 		beXmlElement;
 		yourself
 ]
@@ -149,7 +155,7 @@ DelugeOsc1 >> descriptionReversed [
 	^ MANumberDescription new
 		accessor: #reversed;
 		label: 'reversed';
-		priority: 5;
+		priority: 8;
 		beXmlElement;
 		yourself
 ]
@@ -183,7 +189,7 @@ DelugeOsc1 >> descriptionTimeStretchEnable [
 	^ MANumberDescription new
 		accessor: #timeStretchEnable;
 		label: 'timeStretchEnable';
-		priority: 2;
+		priority: 4;
 		beXmlElement;
 		yourself
 ]
@@ -194,7 +200,7 @@ DelugeOsc1 >> descriptionTranspose [
 	^ MANumberDescription new
 		accessor: #transpose;
 		label: 'transpose';
-		priority: 3;
+		priority: 2;
 		beXmlElement;
 		yourself
 ]
@@ -205,7 +211,7 @@ DelugeOsc1 >> descriptionType [
 	^ MAStringDescription new
 		accessor: #type;
 		label: 'type';
-		priority: 4;
+		priority: 6;
 		beXmlElement;
 		yourself
 ]
@@ -220,6 +226,16 @@ DelugeOsc1 >> descriptionZone [
 		classes: { DelugeZone };
 		beXmlInlineElement;
 		yourself
+]
+
+{ #category : #accessing }
+DelugeOsc1 >> fileName [
+	^ fileName
+]
+
+{ #category : #accessing }
+DelugeOsc1 >> fileName: anObject [
+	fileName := anObject
 ]
 
 { #category : #accessing }

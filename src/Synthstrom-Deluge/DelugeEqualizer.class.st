@@ -41,7 +41,7 @@ DelugeEqualizer >> descriptionBass [
 	^ DelugeHexDescription new
 		accessor: #bass;
 		label: 'bass';
-		priority: 2;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]
@@ -52,7 +52,7 @@ DelugeEqualizer >> descriptionBassFrequency [
 	^ DelugeHexDescription new
 		accessor: #bassFrequency;
 		label: 'bassFrequency';
-		priority: 4;
+		priority: 2;
 		beXmlElement;
 		yourself
 ]
@@ -63,7 +63,7 @@ DelugeEqualizer >> descriptionTreble [
 	^ DelugeHexDescription new
 		accessor: #treble;
 		label: 'treble';
-		priority: 1;
+		priority: 3;
 		beXmlElement;
 		yourself
 ]
@@ -74,7 +74,7 @@ DelugeEqualizer >> descriptionTrebleFrequency [
 	^ DelugeHexDescription new
 		accessor: #trebleFrequency;
 		label: 'trebleFrequency';
-		priority: 3;
+		priority: 4;
 		beXmlElement;
 		yourself
 ]

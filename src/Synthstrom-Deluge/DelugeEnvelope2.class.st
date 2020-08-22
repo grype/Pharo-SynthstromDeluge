@@ -41,7 +41,7 @@ DelugeEnvelope2 >> descriptionAttack [
 	^ DelugeHexDescription new
 		accessor: #attack;
 		label: 'attack';
-		priority: 4;
+		priority: 2;
 		beXmlElement;
 		yourself
 ]
@@ -52,7 +52,7 @@ DelugeEnvelope2 >> descriptionDecay [
 	^ DelugeHexDescription new
 		accessor: #decay;
 		label: 'decay';
-		priority: 2;
+		priority: 3;
 		beXmlElement;
 		yourself
 ]
@@ -63,7 +63,7 @@ DelugeEnvelope2 >> descriptionRelease [
 	^ DelugeHexDescription new
 		accessor: #release;
 		label: 'release';
-		priority: 1;
+		priority: 4;
 		beXmlElement;
 		yourself
 ]
@@ -74,7 +74,7 @@ DelugeEnvelope2 >> descriptionSustain [
 	^ DelugeHexDescription new
 		accessor: #sustain;
 		label: 'sustain';
-		priority: 3;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]

@@ -19,7 +19,7 @@ DelugeUnison >> descriptionDetune [
 	^ MANumberDescription new
 		accessor: #detune;
 		label: 'detune';
-		priority: 2;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]
@@ -30,7 +30,7 @@ DelugeUnison >> descriptionNum [
 	^ MANumberDescription new
 		accessor: #num;
 		label: 'num';
-		priority: 1;
+		priority: 2;
 		beXmlElement;
 		yourself
 ]

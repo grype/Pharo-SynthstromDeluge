@@ -30,7 +30,7 @@ DelugeCompressor >> descriptionAttack [
 	^ MANumberDescription new
 		accessor: #attack;
 		label: 'attack';
-		priority: 1;
+		priority: 3;
 		beXmlElement;
 		yourself
 ]
@@ -41,7 +41,7 @@ DelugeCompressor >> descriptionRelease [
 	^ MANumberDescription new
 		accessor: #release;
 		label: 'release';
-		priority: 2;
+		priority: 1;
 		beXmlElement;
 		yourself
 ]
@@ -52,7 +52,7 @@ DelugeCompressor >> descriptionSyncLevel [
 	^ MANumberDescription new
 		accessor: #syncLevel;
 		label: 'syncLevel';
-		priority: 3;
+		priority: 2;
 		beXmlElement;
 		yourself
 ]

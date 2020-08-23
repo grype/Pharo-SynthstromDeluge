@@ -17,6 +17,20 @@ DelugeZone class >> xmlElementName [
 	^ 'zone'
 ]
 
+{ #category : #comparing }
+DelugeZone >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject ifTrue: [ ^ true ].
+	self class = anObject class ifFalse: [ ^ false ].
+	^ endLoopPos = anObject endLoopPos and: [ 
+		  endMilliseconds = anObject endMilliseconds and: [ 
+			  endSamplePos = anObject endSamplePos and: [ 
+				  startLoopPos = anObject startLoopPos and: [ 
+					  startMilliseconds = anObject startMilliseconds and: [ 
+						  startSamplePos = anObject startSamplePos ] ] ] ] ]
+]
+
 { #category : #'magritte description' }
 DelugeZone >> descriptionEndLoopPos [
 	<magritteDescription>
@@ -111,6 +125,15 @@ DelugeZone >> endSamplePos [
 { #category : #accessing }
 DelugeZone >> endSamplePos: anObject [
 	endSamplePos := anObject
+]
+
+{ #category : #comparing }
+DelugeZone >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ endLoopPos hash bitXor: (endMilliseconds hash bitXor:
+			   (endSamplePos hash bitXor: (startLoopPos hash bitXor:
+					     (startMilliseconds hash bitXor: startSamplePos hash))))
 ]
 
 { #category : #accessing }

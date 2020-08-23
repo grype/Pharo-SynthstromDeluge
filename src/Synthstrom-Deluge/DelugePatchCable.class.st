@@ -229,6 +229,18 @@ DelugePatchCable class >> xmlElementName [
 	^ 'patchCable'
 ]
 
+{ #category : #comparing }
+DelugePatchCable >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject ifTrue: [ ^ true ].
+	self class = anObject class ifFalse: [ ^ false ].
+	^ amount = anObject amount and: [ 
+		  destination = anObject destination and: [ 
+			  rangeAdjustable = anObject rangeAdjustable and: [ 
+				  source = anObject source ] ] ]
+]
+
 { #category : #accessing }
 DelugePatchCable >> amount [
 	^ amount
@@ -501,6 +513,15 @@ DelugePatchCable >> destination [
 { #category : #accessing }
 DelugePatchCable >> destination: anObject [
 	destination := anObject
+]
+
+{ #category : #comparing }
+DelugePatchCable >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ amount hash bitXor:
+		  (destination hash bitXor:
+			   (rangeAdjustable hash bitXor: source hash))
 ]
 
 { #category : #accessing }

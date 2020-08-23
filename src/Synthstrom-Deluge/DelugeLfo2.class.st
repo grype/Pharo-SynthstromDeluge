@@ -35,6 +35,15 @@ DelugeLfo2 class >> xmlElementName [
 	^ 'lfo2'
 ]
 
+{ #category : #comparing }
+DelugeLfo2 >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject ifTrue: [ ^ true ].
+	self class = anObject class ifFalse: [ ^ false ].
+	^ type = anObject type
+]
+
 { #category : #configuring }
 DelugeLfo2 >> beTypeSaw [
 	type := self class typeSaw
@@ -64,6 +73,13 @@ DelugeLfo2 >> descriptionType [
 		priority: 1;
 		beXmlElement;
 		yourself
+]
+
+{ #category : #comparing }
+DelugeLfo2 >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ type hash
 ]
 
 { #category : #accessing }

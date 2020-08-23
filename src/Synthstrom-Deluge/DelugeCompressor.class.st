@@ -14,6 +14,16 @@ DelugeCompressor class >> xmlElementName [
 	^ 'compressor'
 ]
 
+{ #category : #comparing }
+DelugeCompressor >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject ifTrue: [ ^ true ].
+	self class = anObject class ifFalse: [ ^ false ].
+	^ syncLevel = anObject syncLevel and: [ 
+		  release = anObject release and: [ attack = anObject attack ] ]
+]
+
 { #category : #accessing }
 DelugeCompressor >> attack [
 	^ attack
@@ -55,6 +65,13 @@ DelugeCompressor >> descriptionSyncLevel [
 		priority: 2;
 		beXmlElement;
 		yourself
+]
+
+{ #category : #comparing }
+DelugeCompressor >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ syncLevel hash bitXor: (release hash bitXor: attack hash)
 ]
 
 { #category : #accessing }

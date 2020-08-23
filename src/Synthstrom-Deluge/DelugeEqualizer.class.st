@@ -15,6 +15,18 @@ DelugeEqualizer class >> xmlElementName [
 	^ 'equalizer'
 ]
 
+{ #category : #comparing }
+DelugeEqualizer >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject ifTrue: [ ^ true ].
+	self class = anObject class ifFalse: [ ^ false ].
+	^ bass = anObject bass and: [ 
+		  bassFrequency = anObject bassFrequency and: [ 
+			  treble = anObject treble and: [ 
+				  trebleFrequency = anObject trebleFrequency ] ] ]
+]
+
 { #category : #accessing }
 DelugeEqualizer >> bass [
 	^ bass
@@ -77,6 +89,15 @@ DelugeEqualizer >> descriptionTrebleFrequency [
 		priority: 4;
 		beXmlElement;
 		yourself
+]
+
+{ #category : #comparing }
+DelugeEqualizer >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ bass hash bitXor:
+		  (bassFrequency hash bitXor:
+			   (treble hash bitXor: trebleFrequency hash))
 ]
 
 { #category : #accessing }

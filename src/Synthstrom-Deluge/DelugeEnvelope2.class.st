@@ -15,6 +15,17 @@ DelugeEnvelope2 class >> xmlElementName [
 	^ 'envelope2'
 ]
 
+{ #category : #comparing }
+DelugeEnvelope2 >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject ifTrue: [ ^ true ].
+	self class = anObject class ifFalse: [ ^ false ].
+	^ attack = anObject attack and: [ 
+		  decay = anObject decay and: [ 
+			  release = anObject release and: [ sustain = anObject sustain ] ] ]
+]
+
 { #category : #accessing }
 DelugeEnvelope2 >> attack [
 	^ attack
@@ -77,6 +88,14 @@ DelugeEnvelope2 >> descriptionSustain [
 		priority: 1;
 		beXmlElement;
 		yourself
+]
+
+{ #category : #comparing }
+DelugeEnvelope2 >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ attack hash bitXor:
+		  (decay hash bitXor: (release hash bitXor: sustain hash))
 ]
 
 { #category : #accessing }

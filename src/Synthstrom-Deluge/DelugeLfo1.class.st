@@ -36,6 +36,15 @@ DelugeLfo1 class >> xmlElementName [
 	^ 'lfo1'
 ]
 
+{ #category : #comparing }
+DelugeLfo1 >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject ifTrue: [ ^ true ].
+	self class = anObject class ifFalse: [ ^ false ].
+	^ syncLevel = anObject syncLevel and: [ type = anObject type ]
+]
+
 { #category : #configuring }
 DelugeLfo1 >> beTypeSaw [
 	type := self class typeSaw
@@ -76,6 +85,13 @@ DelugeLfo1 >> descriptionType [
 		priority: 2;
 		beXmlElement;
 		yourself
+]
+
+{ #category : #comparing }
+DelugeLfo1 >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ syncLevel hash bitXor: type hash
 ]
 
 { #category : #accessing }

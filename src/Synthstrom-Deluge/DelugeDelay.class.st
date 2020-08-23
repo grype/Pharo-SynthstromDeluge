@@ -16,6 +16,18 @@ DelugeDelay class >> xmlElementName [
 	^ 'delay'
 ]
 
+{ #category : #comparing }
+DelugeDelay >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject ifTrue: [ ^ true ].
+	self class = anObject class ifFalse: [ ^ false ].
+	^ analog = anObject analog and: [ 
+		  feedback = anObject feedback and: [ 
+			  pingPong = anObject pingPong and: [ 
+				  rate = anObject rate and: [ syncLevel = anObject syncLevel ] ] ] ]
+]
+
 { #category : #accessing }
 DelugeDelay >> analog [
 	^ analog
@@ -89,6 +101,14 @@ DelugeDelay >> feedback [
 { #category : #accessing }
 DelugeDelay >> feedback: anObject [
 	feedback := anObject
+]
+
+{ #category : #comparing }
+DelugeDelay >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ analog hash bitXor: (feedback hash bitXor:
+			   (pingPong hash bitXor: (rate hash bitXor: syncLevel hash)))
 ]
 
 { #category : #accessing }

@@ -40,6 +40,17 @@ DelugeArpeggiator class >> xmlElementName [
 	^ 'arpeggiator'
 ]
 
+{ #category : #comparing }
+DelugeArpeggiator >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject ifTrue: [ ^ true ].
+	self class = anObject class ifFalse: [ ^ false ].
+	^ mode = anObject mode and: [ 
+		  numOctaves = anObject numOctaves and: [ 
+			  syncLevel = anObject syncLevel ] ]
+]
+
 { #category : #configuring }
 DelugeArpeggiator >> beModeBoth [
 	mode := self class modeBoth
@@ -91,6 +102,13 @@ DelugeArpeggiator >> descriptionSyncLevel [
 		priority: 1;
 		beXmlElement;
 		yourself
+]
+
+{ #category : #comparing }
+DelugeArpeggiator >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ mode hash bitXor: (numOctaves hash bitXor: syncLevel hash)
 ]
 
 { #category : #accessing }

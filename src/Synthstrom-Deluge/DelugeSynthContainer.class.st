@@ -1,5 +1,5 @@
 Class {
-	#name : #DelugeSongContainer,
+	#name : #DelugeSynthContainer,
 	#superclass : #DelugeObject,
 	#instVars : [
 		'earliestCompatibleFirmware',
@@ -16,52 +16,69 @@ Class {
 }
 
 { #category : #accessing }
-DelugeSongContainer class >> earliestCompatibleFirmware200beta [
+DelugeSynthContainer class >> earliestCompatibleFirmware200beta [
 	^ EarliestCompatibleFirmware200beta ifNil: [ EarliestCompatibleFirmware200beta := '2.0.0-beta' ]
 ]
 
 { #category : #accessing }
-DelugeSongContainer class >> earliestCompatibleFirmware210 [
+DelugeSynthContainer class >> earliestCompatibleFirmware210 [
 	^ EarliestCompatibleFirmware210 ifNil: [ EarliestCompatibleFirmware210 := '2.1.0' ]
 ]
 
 { #category : #accessing }
-DelugeSongContainer class >> firmwareVersion200beta [
+DelugeSynthContainer class >> firmwareVersion200beta [
 	^ FirmwareVersion200beta ifNil: [ FirmwareVersion200beta := '2.0.0-beta' ]
 ]
 
 { #category : #accessing }
-DelugeSongContainer class >> firmwareVersion210 [
+DelugeSynthContainer class >> firmwareVersion210 [
 	^ FirmwareVersion210 ifNil: [ FirmwareVersion210 := '2.1.0' ]
 ]
 
+{ #category : #testing }
+DelugeSynthContainer class >> isContainer [
+	^ true
+]
+
 { #category : #accessing }
-DelugeSongContainer class >> xmlElementName [
-	^ 'songContainer'
+DelugeSynthContainer class >> xmlElementName [
+	^ 'synthContainer'
+]
+
+{ #category : #comparing }
+DelugeSynthContainer >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject ifTrue: [ ^ true ].
+	self class = anObject class ifFalse: [ ^ false ].
+	^ earliestCompatibleFirmware = anObject earliestCompatibleFirmware 
+		  and: [ 
+			  firmwareVersion = anObject firmwareVersion and: [ 
+				  sound = anObject sound ] ]
 ]
 
 { #category : #configuring }
-DelugeSongContainer >> beEarliestCompatibleFirmware200beta [
+DelugeSynthContainer >> beEarliestCompatibleFirmware200beta [
 	earliestCompatibleFirmware := self class earliestCompatibleFirmware200beta
 ]
 
 { #category : #configuring }
-DelugeSongContainer >> beEarliestCompatibleFirmware210 [
+DelugeSynthContainer >> beEarliestCompatibleFirmware210 [
 	earliestCompatibleFirmware := self class earliestCompatibleFirmware210
 ]
 
 { #category : #configuring }
-DelugeSongContainer >> beFirmwareVersion200beta [
+DelugeSynthContainer >> beFirmwareVersion200beta [
 	firmwareVersion := self class firmwareVersion200beta
 ]
 
 { #category : #configuring }
-DelugeSongContainer >> beFirmwareVersion210 [
+DelugeSynthContainer >> beFirmwareVersion210 [
 	firmwareVersion := self class firmwareVersion210
 ]
 
 { #category : #'magritte description' }
-DelugeSongContainer >> descriptionEarliestCompatibleFirmware [
+DelugeSynthContainer >> descriptionEarliestCompatibleFirmware [
 	<magritteDescription>
 	^ MAStringDescription new
 		accessor: #earliestCompatibleFirmware;
@@ -72,7 +89,7 @@ DelugeSongContainer >> descriptionEarliestCompatibleFirmware [
 ]
 
 { #category : #'magritte description' }
-DelugeSongContainer >> descriptionFirmwareVersion [
+DelugeSynthContainer >> descriptionFirmwareVersion [
 	<magritteDescription>
 	^ MAStringDescription new
 		accessor: #firmwareVersion;
@@ -83,7 +100,7 @@ DelugeSongContainer >> descriptionFirmwareVersion [
 ]
 
 { #category : #'magritte description' }
-DelugeSongContainer >> descriptionSound [
+DelugeSynthContainer >> descriptionSound [
 	<magritteDescription>
 	^ MAToOneRelationDescription new
 		accessor: #sound;
@@ -95,31 +112,39 @@ DelugeSongContainer >> descriptionSound [
 ]
 
 { #category : #accessing }
-DelugeSongContainer >> earliestCompatibleFirmware [
+DelugeSynthContainer >> earliestCompatibleFirmware [
 	^ earliestCompatibleFirmware
 ]
 
 { #category : #accessing }
-DelugeSongContainer >> earliestCompatibleFirmware: anObject [
+DelugeSynthContainer >> earliestCompatibleFirmware: anObject [
 	earliestCompatibleFirmware := anObject
 ]
 
 { #category : #accessing }
-DelugeSongContainer >> firmwareVersion [
+DelugeSynthContainer >> firmwareVersion [
 	^ firmwareVersion
 ]
 
 { #category : #accessing }
-DelugeSongContainer >> firmwareVersion: anObject [
+DelugeSynthContainer >> firmwareVersion: anObject [
 	firmwareVersion := anObject
 ]
 
+{ #category : #comparing }
+DelugeSynthContainer >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ earliestCompatibleFirmware hash bitXor:
+		  (firmwareVersion hash bitXor: sound hash)
+]
+
 { #category : #accessing }
-DelugeSongContainer >> sound [
+DelugeSynthContainer >> sound [
 	^ sound
 ]
 
 { #category : #accessing }
-DelugeSongContainer >> sound: anObject [
+DelugeSynthContainer >> sound: anObject [
 	sound := anObject
 ]

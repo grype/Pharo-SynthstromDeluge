@@ -277,6 +277,16 @@ DelugeModKnob class >> xmlElementName [
 	^ 'modKnob'
 ]
 
+{ #category : #comparing }
+DelugeModKnob >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject ifTrue: [ ^ true ].
+	self class = anObject class ifFalse: [ ^ false ].
+	^ controlsParam = anObject controlsParam and: [ 
+		  patchAmountFromSource = anObject patchAmountFromSource ]
+]
+
 { #category : #configuring }
 DelugeModKnob >> beControlsParamBass [
 	controlsParam := self class controlsParamBass
@@ -552,6 +562,13 @@ DelugeModKnob >> descriptionPatchAmountFromSource [
 		priority: 1;
 		beXmlElement;
 		yourself
+]
+
+{ #category : #comparing }
+DelugeModKnob >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ controlsParam hash bitXor: patchAmountFromSource hash
 ]
 
 { #category : #accessing }

@@ -16,6 +16,18 @@ DelugeSampleRange class >> xmlElementName [
 	^ 'sampleRange'
 ]
 
+{ #category : #comparing }
+DelugeSampleRange >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject ifTrue: [ ^ true ].
+	self class = anObject class ifFalse: [ ^ false ].
+	^ cents = anObject cents and: [ 
+		  fileName = anObject fileName and: [ 
+			  rangeTopNote = anObject rangeTopNote and: [ 
+				  transpose = anObject transpose and: [ zone = anObject zone ] ] ] ]
+]
+
 { #category : #accessing }
 DelugeSampleRange >> cents [
 	^ cents
@@ -90,6 +102,14 @@ DelugeSampleRange >> fileName [
 { #category : #accessing }
 DelugeSampleRange >> fileName: anObject [
 	fileName := anObject
+]
+
+{ #category : #comparing }
+DelugeSampleRange >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ cents hash bitXor: (fileName hash bitXor:
+			   (rangeTopNote hash bitXor: (transpose hash bitXor: zone hash)))
 ]
 
 { #category : #accessing }

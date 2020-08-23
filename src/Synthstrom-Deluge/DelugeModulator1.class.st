@@ -14,6 +14,17 @@ DelugeModulator1 class >> xmlElementName [
 	^ 'modulator1'
 ]
 
+{ #category : #comparing }
+DelugeModulator1 >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject ifTrue: [ ^ true ].
+	self class = anObject class ifFalse: [ ^ false ].
+	^ cents = anObject cents and: [ 
+		  retrigPhase = anObject retrigPhase and: [ 
+			  transpose = anObject transpose ] ]
+]
+
 { #category : #accessing }
 DelugeModulator1 >> cents [
 	^ cents
@@ -55,6 +66,13 @@ DelugeModulator1 >> descriptionTranspose [
 		priority: 2;
 		beXmlElement;
 		yourself
+]
+
+{ #category : #comparing }
+DelugeModulator1 >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ cents hash bitXor: (retrigPhase hash bitXor: transpose hash)
 ]
 
 { #category : #accessing }

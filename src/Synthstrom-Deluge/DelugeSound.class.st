@@ -116,6 +116,37 @@ DelugeSound class >> xmlElementName [
 	^ 'sound'
 ]
 
+{ #category : #comparing }
+DelugeSound >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject ifTrue: [ ^ true ].
+	self class = anObject class ifFalse: [ ^ false ].
+	^ arpeggiator = anObject arpeggiator and: [ 
+		  clippingAmount = anObject clippingAmount and: [ 
+			  compressor = anObject compressor and: [ 
+				  defaultParams = anObject defaultParams and: [ 
+					  delay = anObject delay and: [ 
+						  lfo1 = anObject lfo1 and: [ 
+							  lfo2 = anObject lfo2 and: [ 
+								  lpfMode = anObject lpfMode and: [ 
+									  midiKnobs = anObject midiKnobs and: [ 
+										  modFXType = anObject modFXType and: [ 
+											  modKnobs = anObject modKnobs and: [ 
+												  mode = anObject mode and: [ 
+													  modulator1 = anObject modulator1 and: [ 
+														  modulator2 = anObject modulator2 and: [ 
+															  name = anObject name and: [ 
+																  osc1 = anObject osc1 and: [ 
+																	  osc2 = anObject osc2 and: [ 
+																		  oscillatorReset = anObject oscillatorReset and: [ 
+																			  polyphonic = anObject polyphonic and: [ 
+																				  sideChainSend = anObject sideChainSend and: [ 
+																					  transpose = anObject transpose and: [ 
+																						  unison = anObject unison and: [ 
+																							  voicePriority = anObject voicePriority ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ]
+]
+
 { #category : #accessing }
 DelugeSound >> arpeggiator [
 	^ arpeggiator
@@ -453,7 +484,7 @@ DelugeSound >> descriptionOscillatorReset [
 { #category : #'magritte description' }
 DelugeSound >> descriptionPolyphonic [
 	<magritteDescription>
-	^ MANumberDescription new
+	^ MAStringDescription new
 		accessor: #polyphonic;
 		label: 'polyphonic';
 		priority: 6;
@@ -504,6 +535,31 @@ DelugeSound >> descriptionVoicePriority [
 		priority: 9;
 		beXmlElement;
 		yourself
+]
+
+{ #category : #comparing }
+DelugeSound >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ arpeggiator hash bitXor:
+		  (clippingAmount hash bitXor: (compressor hash bitXor:
+				    (defaultParams hash bitXor:
+					     (delay hash bitXor: (lfo1 hash bitXor:
+							       (lfo2 hash bitXor:
+								        (lpfMode hash bitXor: (midiKnobs hash bitXor:
+										          (modFXType hash bitXor:
+											           (modKnobs hash bitXor: (mode hash bitXor:
+													             (modulator1 hash bitXor:
+														              (modulator2 hash bitXor:
+															               (name hash bitXor:
+																                (osc1 hash bitXor:
+																	                 (osc2 hash bitXor:
+																		                  (oscillatorReset hash bitXor:
+																			                   (polyphonic hash bitXor:
+																				                    (sideChainSend hash bitXor:
+																					                     (transpose hash bitXor:
+																						                      (unison hash bitXor:
+																							                       voicePriority hash)))))))))))))))))))))
 ]
 
 { #category : #accessing }

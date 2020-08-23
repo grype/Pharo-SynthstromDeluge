@@ -12,6 +12,15 @@ DelugePatchCables class >> xmlElementName [
 	^ 'patchCables'
 ]
 
+{ #category : #comparing }
+DelugePatchCables >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject ifTrue: [ ^ true ].
+	self class = anObject class ifFalse: [ ^ false ].
+	^ patchCable = anObject patchCable
+]
+
 { #category : #'magritte description' }
 DelugePatchCables >> descriptionPatchCable [
 	<magritteDescription>
@@ -22,6 +31,13 @@ DelugePatchCables >> descriptionPatchCable [
 		classes: { DelugePatchCable };
 		beXmlInlineElement;
 		yourself
+]
+
+{ #category : #comparing }
+DelugePatchCables >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ patchCable hash
 ]
 
 { #category : #accessing }

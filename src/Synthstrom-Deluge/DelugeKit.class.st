@@ -44,6 +44,21 @@ DelugeKit class >> xmlElementName [
 	^ 'kit'
 ]
 
+{ #category : #comparing }
+DelugeKit >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject ifTrue: [ ^ true ].
+	self class = anObject class ifFalse: [ ^ false ].
+	^ currentFilterType = anObject currentFilterType and: [ 
+		  defaultParams = anObject defaultParams and: [ 
+			  lpfMode = anObject lpfMode and: [ 
+				  modFXCurrentParam = anObject modFXCurrentParam and: [ 
+					  modFXType = anObject modFXType and: [ 
+						  selectedDrumIndex = anObject selectedDrumIndex and: [ 
+							  soundSources = anObject soundSources ] ] ] ] ] ]
+]
+
 { #category : #configuring }
 DelugeKit >> beCurrentFilterTypeLpf [
 	currentFilterType := self class currentFilterTypeLpf
@@ -161,6 +176,16 @@ DelugeKit >> descriptionSoundSources [
 		classes: { DelugeSound };
 		beXmlElement;
 		yourself
+]
+
+{ #category : #comparing }
+DelugeKit >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ currentFilterType hash bitXor:
+		  (defaultParams hash bitXor: (lpfMode hash bitXor:
+				    (modFXCurrentParam hash bitXor: (modFXType hash bitXor:
+						      (selectedDrumIndex hash bitXor: soundSources hash)))))
 ]
 
 { #category : #accessing }

@@ -53,6 +53,76 @@ DelugeDefaultParams class >> xmlElementName [
 	^ 'defaultParams'
 ]
 
+{ #category : #comparing }
+DelugeDefaultParams >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject ifTrue: [ ^ true ].
+	self class = anObject class ifFalse: [ ^ false ].
+	^ volume = anObject volume and: [ 
+		  arpeggiatorGate = anObject arpeggiatorGate and: [ 
+			  arpeggiatorRate = anObject arpeggiatorRate and: [ 
+				  bitCrush = anObject bitCrush and: [ 
+					  carrier1Feedback = anObject carrier1Feedback and: [ 
+						  carrier2Feedback = anObject carrier2Feedback and: [ 
+							  compressorShape = anObject compressorShape and: [ 
+								  delay = anObject delay and: [ 
+									  delayFeedback = anObject delayFeedback and: [ 
+										  delayRate = anObject delayRate and: [ 
+											  envelope1 = anObject envelope1 and: [ 
+												  envelope2 = anObject envelope2 and: [ 
+													  equalizer = anObject equalizer and: [ 
+														  hpf = anObject hpf and: [ 
+															  hpfFrequency = anObject hpfFrequency and: [ 
+																  hpfResonance = anObject hpfResonance and: [ 
+																	  lfo1Rate = anObject lfo1Rate and: [ 
+																		  lfo2Rate = anObject lfo2Rate and: [ 
+																			  lpf = anObject lpf and: [ 
+																				  lpfFrequency = anObject lpfFrequency and: [ 
+																					  lpfResonance = anObject lpfResonance and: [ 
+																						  modFXDepth = anObject modFXDepth and: [ 
+																							  modFXFeedback = anObject modFXFeedback and: [ 
+																								  modFXOffset = anObject modFXOffset and: [ 
+																									  modFXRate = anObject modFXRate and: [ 
+																										  modulator1Amount
+																										  = anObject modulator1Amount and: [ 
+																											  modulator1Feedback
+																											  = anObject modulator1Feedback and: [ 
+																												  modulator2Amount
+																												  = anObject modulator2Amount and: [ 
+																													  modulator2Feedback
+																													  = anObject modulator2Feedback and: [ 
+																														  noiseVolume = anObject noiseVolume 
+																															  and: [ 
+																																  oscAPitchAdjust
+																																  = anObject oscAPitchAdjust and: [ 
+																																	  oscAPulseWidth
+																																	  = anObject oscAPulseWidth and: [ 
+																																		  oscAVolume = anObject oscAVolume 
+																																			  and: [ 
+																																				  oscBPitchAdjust
+																																				  = anObject oscBPitchAdjust and: [ 
+																																					  oscBPulseWidth
+																																					  = anObject oscBPulseWidth and: [ 
+																																						  oscBVolume
+																																						  = anObject oscBVolume and: [ 
+																																							  pan = anObject pan and: [ 
+																																								  patchCables
+																																								  = anObject patchCables and: [ 
+																																									  portamento
+																																									  = anObject portamento and: [ 
+																																										  reverbAmount
+																																										  = anObject reverbAmount 
+																																											  and: [ 
+																																												  sampleRateReduction
+																																												  =
+																																												  anObject
+																																													  sampleRateReduction 
+																																													  and: [ 
+																																													  stutterRate
+																																													  = anObject stutterRate ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ]
+]
+
 { #category : #accessing }
 DelugeDefaultParams >> arpeggiatorGate [
 	^ arpeggiatorGate
@@ -640,6 +710,84 @@ DelugeDefaultParams >> equalizer [
 { #category : #accessing }
 DelugeDefaultParams >> equalizer: anObject [
 	equalizer := anObject
+]
+
+{ #category : #comparing }
+DelugeDefaultParams >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ volume hash bitXor:
+		  (arpeggiatorGate hash bitXor: (arpeggiatorRate hash bitXor:
+				    (bitCrush hash bitXor: (carrier1Feedback hash bitXor:
+						      (carrier2Feedback hash bitXor:
+							       (compressorShape hash bitXor:
+								        (delay hash bitXor: (delayFeedback hash bitXor:
+										          (delayRate hash bitXor: (envelope1 hash bitXor:
+												            (envelope2 hash bitXor:
+													             (equalizer hash bitXor: (hpf hash bitXor:
+															               (hpfFrequency hash bitXor:
+																                (hpfResonance hash bitXor:
+																	                 (lfo1Rate hash bitXor:
+																		                  (lfo2Rate hash bitXor:
+																			                   (lpf hash bitXor:
+																				                    (lpfFrequency hash bitXor:
+																					                     (lpfResonance hash bitXor:
+																						                      (modFXDepth hash bitXor:
+																							                       (modFXFeedback hash 
+																								                        bitXor:
+																									                        (modFXOffset hash 
+																										                         bitXor:
+																											                         (modFXRate hash 
+																												                          bitXor:
+																													                          (modulator1Amount
+																														                           hash bitXor:
+																														                           (modulator1Feedback
+																															                            hash 
+																															                            bitXor:
+																																                            (modulator2Amount
+																																	                             hash 
+																																	                             bitXor:
+																																		                             (modulator2Feedback
+																																			                              hash 
+																																			                              bitXor:
+																																				                              (noiseVolume
+																																					                               hash 
+																																					                               bitXor:
+																																						                               (oscAPitchAdjust
+																																							                                hash 
+																																							                                bitXor:
+																																								                                (oscAPulseWidth
+																																									                                 hash 
+																																									                                 bitXor:
+																																										                                 (oscAVolume
+																																											                                  hash 
+																																											                                  bitXor:
+																																												                                  (oscBPitchAdjust
+																																													                                   hash 
+																																													                                   bitXor:
+																																														                                   (oscBPulseWidth
+																																															                                    hash 
+																																															                                    bitXor:
+																																																                                    (oscBVolume
+																																																	                                     hash 
+																																																	                                     bitXor:
+																																																		                                     (pan
+																																																			                                      hash 
+																																																			                                      bitXor:
+																																																				                                      (patchCables
+																																																					                                       hash 
+																																																					                                       bitXor:
+																																																						                                       (portamento
+																																																							                                        hash 
+																																																							                                        bitXor:
+																																																								                                        (reverbAmount
+																																																									                                         hash 
+																																																									                                         bitXor:
+																																																									                                         (sampleRateReduction
+																																																										                                          hash 
+																																																										                                          bitXor:
+																																																										                                          stutterRate
+																																																											                                          hash))))))))))))))))))))))))))))))))))))))))
 ]
 
 { #category : #accessing }

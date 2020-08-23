@@ -6,12 +6,6 @@ Class {
 	#category : #'Synthstrom-Deluge-Core'
 }
 
-{ #category : #testing }
-DelugeObject class >> canBeRoot [
-	"Whether the node that this class represents can be root"
-	^ false
-]
-
 { #category : #'instance creation' }
 DelugeObject class >> fromFile: aFile [
 	| content dom |
@@ -88,6 +82,13 @@ DelugeObject class >> generateConstantsAccessorsFromReferences: refs [
 	(CBChangesBrowser changes: allChanges) open
 ]
 
+{ #category : #testing }
+DelugeObject class >> isContainer [
+	"Whether the corresponding XML element is a container. Container elements are used to wrap contents of XML files so that we have one root and a corresponding class for reading and writing those files. For example - SYNTH000.XML will be represented by DelugeSynthContainer."
+
+	^ false
+]
+
 { #category : #formatting }
 DelugeObject class >> wrapXMLString: aString in: parentNodeName [
 	^ ('^( *<\?xml [^>]*>)' asRegex
@@ -97,6 +98,11 @@ DelugeObject class >> wrapXMLString: aString in: parentNodeName [
 ]
 
 { #category : #'as yet unclassified' }
+DelugeObject class >> xmlHeader [
+	^ '<?xml version="1.0" encoding="UTF-8"?>'
+]
+
+{ #category : #accessing }
 DelugeObject >> allReferencedConstants [
 	| results traveler |
 	traveler := ObjectTraveler on: self.
@@ -111,4 +117,33 @@ DelugeObject >> allReferencedConstants [
 				->
 				(traveler currentNode instVarAt: traveler currentReferenceIndex) ] ].
 	^ results
+]
+
+{ #category : #writing }
+DelugeObject >> toFile: aFile [
+	| fileRef xml |
+
+	fileRef := aFile asFileReference.
+	xml := self magritteDescription toXml: self.
+	self class isContainer ifTrue: [ xml := self unwrapXMLString: xml ].
+	fileRef ifExists: [ fileRef delete ].
+	fileRef writeStream
+		nextPutAll: self class xmlHeader;
+		nextPut: Character lf;
+		nextPutAll: xml;
+		flush
+]
+
+{ #category : #writing }
+DelugeObject >> unwrapXMLString: xml [
+	| str pfx sfx |
+
+	str := xml trimBoth.
+	pfx := '<{1}>' format: { self class xmlElementName }.
+	(str beginsWith: pfx) ifTrue: [ 
+		str := str copyFrom: pfx size + 1 to: str size ].
+	sfx := '</{1}>' format: { self class xmlElementName }.
+	(str endsWith: sfx) ifTrue: [ 
+		str := str copyFrom: 1 to: str size - sfx size ].
+	^ str
 ]

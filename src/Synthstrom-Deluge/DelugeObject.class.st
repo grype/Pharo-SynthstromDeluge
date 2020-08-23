@@ -1,3 +1,42 @@
+"
+I am a base object for representing instruments and their parameters of the Synthstrom's Deluge.
+
+I exist for a few reasons:
+1. Grouping all of the instrument and param types
+2. Providing utility methods for reading from and writing to XML files.
+3. Housing (class side) methods for generating classes that represent Deluge's instruments and parameters. In fact, all of my subclasses had been generated using those methods. See notes below for more info.
+
+# Containers
+
+My subclasses merely represent the XML structure of Deluge's file format. There are two types of classes - containers and the rest. Containers represent actual files - i.e. DelugeKitContainer is a KIT*.XML file, DelugeSynthContainer - SYNTH*.XML file. The rest of the subclasses represent data within those containers.
+
+# Reading from XML files:
+
+Reading must be done using one of the container files:
+
+	kit := DelugeKitContainer fromFile: '/path/tp/KIT000.XML'.
+
+#Writing container types back to XML file:
+
+	kit toFile: '/path/to/KIT001.XML'.
+
+# Generating subclasses
+
+To generate subclasses, which might be needed if new firmware introduced changes to the format:
+
+	DelugeObject generateClassesFromFile: '/path/to/KIT000.XML' containerNodeName: 'kitContainer'.
+	
+That will generate DelugeKitContainer class, from the specified XML. This is how that class was generated.
+
+You may also want to extract any constants used in the XML:
+
+	kit := DelugeKitContainer fromFile: '/path/tp/KIT000.XML'.
+	DelugeObject generateConstantsAccessorsFromReferences: kit allReferencedConstants.
+
+This may make more sense to do over a larger pool of files in order to capture all of the known constants. The result is that each class that uses string params, will define class variables for each string value, class side accessors for those variables, lazily initializing the class vars; and instance side methods for configuring the instance to use that constant value. (i.e. #beLpfMode24dB).
+
+Be sure to check that the generated classes did not destroy existing variables, or left the class with variables missing...
+"
 Class {
 	#name : #DelugeObject,
 	#superclass : #Object,

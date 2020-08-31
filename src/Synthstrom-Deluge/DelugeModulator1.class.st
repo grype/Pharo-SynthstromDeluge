@@ -43,6 +43,7 @@ DelugeModulator1 >> descriptionCents [
 		label: 'cents';
 		priority: 1;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -54,6 +55,7 @@ DelugeModulator1 >> descriptionRetrigPhase [
 		label: 'retrigPhase';
 		priority: 3;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -65,6 +67,7 @@ DelugeModulator1 >> descriptionTranspose [
 		label: 'transpose';
 		priority: 2;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 

@@ -85,6 +85,7 @@ DelugeSynthContainer >> descriptionEarliestCompatibleFirmware [
 		label: 'earliestCompatibleFirmware';
 		priority: 1;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -96,6 +97,7 @@ DelugeSynthContainer >> descriptionFirmwareVersion [
 		label: 'firmwareVersion';
 		priority: 3;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 

@@ -46,6 +46,7 @@ DelugeDelay >> descriptionAnalog [
 		label: 'analog';
 		priority: 2;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -57,6 +58,7 @@ DelugeDelay >> descriptionFeedback [
 		label: 'feedback';
 		priority: 1;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -68,6 +70,7 @@ DelugeDelay >> descriptionPingPong [
 		label: 'pingPong';
 		priority: 1;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -79,6 +82,7 @@ DelugeDelay >> descriptionRate [
 		label: 'rate';
 		priority: 2;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -90,6 +94,7 @@ DelugeDelay >> descriptionSyncLevel [
 		label: 'syncLevel';
 		priority: 3;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 

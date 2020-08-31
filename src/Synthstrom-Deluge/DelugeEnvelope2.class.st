@@ -54,6 +54,7 @@ DelugeEnvelope2 >> descriptionAttack [
 		label: 'attack';
 		priority: 2;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -65,6 +66,7 @@ DelugeEnvelope2 >> descriptionDecay [
 		label: 'decay';
 		priority: 3;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -76,6 +78,7 @@ DelugeEnvelope2 >> descriptionRelease [
 		label: 'release';
 		priority: 4;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -87,6 +90,7 @@ DelugeEnvelope2 >> descriptionSustain [
 		label: 'sustain';
 		priority: 1;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 

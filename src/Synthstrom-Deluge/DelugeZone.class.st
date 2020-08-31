@@ -39,6 +39,7 @@ DelugeZone >> descriptionEndLoopPos [
 		label: 'endLoopPos';
 		priority: 2;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -50,6 +51,7 @@ DelugeZone >> descriptionEndMilliseconds [
 		label: 'endMilliseconds';
 		priority: 1;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -61,6 +63,7 @@ DelugeZone >> descriptionEndSamplePos [
 		label: 'endSamplePos';
 		priority: 1;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -72,6 +75,7 @@ DelugeZone >> descriptionStartLoopPos [
 		label: 'startLoopPos';
 		priority: 1;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -83,6 +87,7 @@ DelugeZone >> descriptionStartMilliseconds [
 		label: 'startMilliseconds';
 		priority: 2;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -94,6 +99,7 @@ DelugeZone >> descriptionStartSamplePos [
 		label: 'startSamplePos';
 		priority: 2;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 

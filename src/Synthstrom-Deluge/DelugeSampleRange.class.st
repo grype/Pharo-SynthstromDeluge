@@ -46,6 +46,7 @@ DelugeSampleRange >> descriptionCents [
 		label: 'cents';
 		priority: 3;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -57,6 +58,7 @@ DelugeSampleRange >> descriptionFileName [
 		label: 'fileName';
 		priority: 4;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -68,6 +70,7 @@ DelugeSampleRange >> descriptionRangeTopNote [
 		label: 'rangeTopNote';
 		priority: 2;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -79,6 +82,7 @@ DelugeSampleRange >> descriptionTranspose [
 		label: 'transpose';
 		priority: 1;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 

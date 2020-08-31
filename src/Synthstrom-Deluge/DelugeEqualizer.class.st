@@ -55,6 +55,7 @@ DelugeEqualizer >> descriptionBass [
 		label: 'bass';
 		priority: 1;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -66,6 +67,7 @@ DelugeEqualizer >> descriptionBassFrequency [
 		label: 'bassFrequency';
 		priority: 2;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -77,6 +79,7 @@ DelugeEqualizer >> descriptionTreble [
 		label: 'treble';
 		priority: 3;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -88,6 +91,7 @@ DelugeEqualizer >> descriptionTrebleFrequency [
 		label: 'trebleFrequency';
 		priority: 4;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 

@@ -72,6 +72,7 @@ DelugeLfo2 >> descriptionType [
 		label: 'type';
 		priority: 1;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 

@@ -79,6 +79,7 @@ DelugeArpeggiator >> descriptionMode [
 		label: 'mode';
 		priority: 3;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -90,6 +91,7 @@ DelugeArpeggiator >> descriptionNumOctaves [
 		label: 'numOctaves';
 		priority: 2;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -101,6 +103,7 @@ DelugeArpeggiator >> descriptionSyncLevel [
 		label: 'syncLevel';
 		priority: 1;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 

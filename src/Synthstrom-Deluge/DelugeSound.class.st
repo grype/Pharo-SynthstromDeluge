@@ -292,6 +292,7 @@ DelugeSound >> descriptionClippingAmount [
 		label: 'clippingAmount';
 		priority: 10;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -363,6 +364,7 @@ DelugeSound >> descriptionLpfMode [
 		label: 'lpfMode';
 		priority: 3;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -374,6 +376,7 @@ DelugeSound >> descriptionMidiKnobs [
 		label: 'midiKnobs';
 		priority: 12;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -385,6 +388,7 @@ DelugeSound >> descriptionModFXType [
 		label: 'modFXType';
 		priority: 8;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -408,6 +412,7 @@ DelugeSound >> descriptionMode [
 		label: 'mode';
 		priority: 17;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -443,6 +448,7 @@ DelugeSound >> descriptionName [
 		label: 'name';
 		priority: 2;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -478,6 +484,7 @@ DelugeSound >> descriptionOscillatorReset [
 		label: 'oscillatorReset';
 		priority: 16;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -489,6 +496,7 @@ DelugeSound >> descriptionPolyphonic [
 		label: 'polyphonic';
 		priority: 6;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -500,6 +508,7 @@ DelugeSound >> descriptionSideChainSend [
 		label: 'sideChainSend';
 		priority: 5;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -511,6 +520,7 @@ DelugeSound >> descriptionTranspose [
 		label: 'transpose';
 		priority: 16;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -534,6 +544,7 @@ DelugeSound >> descriptionVoicePriority [
 		label: 'voicePriority';
 		priority: 9;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 

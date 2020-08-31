@@ -31,6 +31,7 @@ DelugeHpf >> descriptionFrequency [
 		label: 'frequency';
 		priority: 1;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -42,6 +43,7 @@ DelugeHpf >> descriptionResonance [
 		label: 'resonance';
 		priority: 2;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 

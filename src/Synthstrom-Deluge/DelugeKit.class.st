@@ -107,6 +107,7 @@ DelugeKit >> descriptionCurrentFilterType [
 		label: 'currentFilterType';
 		priority: 4;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -130,6 +131,7 @@ DelugeKit >> descriptionLpfMode [
 		label: 'lpfMode';
 		priority: 6;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -141,6 +143,7 @@ DelugeKit >> descriptionModFXCurrentParam [
 		label: 'modFXCurrentParam';
 		priority: 1;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -152,6 +155,7 @@ DelugeKit >> descriptionModFXType [
 		label: 'modFXType';
 		priority: 5;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -163,6 +167,7 @@ DelugeKit >> descriptionSelectedDrumIndex [
 		label: 'selectedDrumIndex';
 		priority: 7;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 

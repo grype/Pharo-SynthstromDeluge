@@ -131,6 +131,7 @@ DelugeOsc1 >> descriptionCents [
 		label: 'cents';
 		priority: 7;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -142,6 +143,7 @@ DelugeOsc1 >> descriptionFileName [
 		label: 'fileName';
 		priority: 3;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -153,6 +155,7 @@ DelugeOsc1 >> descriptionLoopMode [
 		label: 'loopMode';
 		priority: 9;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -164,6 +167,7 @@ DelugeOsc1 >> descriptionRetrigPhase [
 		label: 'retrigPhase';
 		priority: 1;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -175,6 +179,7 @@ DelugeOsc1 >> descriptionReversed [
 		label: 'reversed';
 		priority: 8;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -198,6 +203,7 @@ DelugeOsc1 >> descriptionTimeStretchAmount [
 		label: 'timeStretchAmount';
 		priority: 1;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -209,6 +215,7 @@ DelugeOsc1 >> descriptionTimeStretchEnable [
 		label: 'timeStretchEnable';
 		priority: 4;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -220,6 +227,7 @@ DelugeOsc1 >> descriptionTranspose [
 		label: 'transpose';
 		priority: 2;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -231,6 +239,7 @@ DelugeOsc1 >> descriptionType [
 		label: 'type';
 		priority: 6;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 

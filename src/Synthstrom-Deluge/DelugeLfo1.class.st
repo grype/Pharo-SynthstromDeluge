@@ -73,6 +73,7 @@ DelugeLfo1 >> descriptionSyncLevel [
 		label: 'syncLevel';
 		priority: 1;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -84,6 +85,7 @@ DelugeLfo1 >> descriptionType [
 		label: 'type';
 		priority: 2;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 

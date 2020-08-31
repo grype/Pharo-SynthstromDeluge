@@ -221,6 +221,7 @@ DelugeDefaultParams >> descriptionArpeggiatorGate [
 		label: 'arpeggiatorGate';
 		priority: 5;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -232,6 +233,7 @@ DelugeDefaultParams >> descriptionArpeggiatorRate [
 		label: 'arpeggiatorRate';
 		priority: 3;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -243,6 +245,7 @@ DelugeDefaultParams >> descriptionBitCrush [
 		label: 'bitCrush';
 		priority: 27;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -254,6 +257,7 @@ DelugeDefaultParams >> descriptionCarrier1Feedback [
 		label: 'carrier1Feedback';
 		priority: 24;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -265,6 +269,7 @@ DelugeDefaultParams >> descriptionCarrier2Feedback [
 		label: 'carrier2Feedback';
 		priority: 26;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -276,6 +281,7 @@ DelugeDefaultParams >> descriptionCompressorShape [
 		label: 'compressorShape';
 		priority: 31;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -299,6 +305,7 @@ DelugeDefaultParams >> descriptionDelayFeedback [
 		label: 'delayFeedback';
 		priority: 25;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -310,6 +317,7 @@ DelugeDefaultParams >> descriptionDelayRate [
 		label: 'delayRate';
 		priority: 34;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -369,6 +377,7 @@ DelugeDefaultParams >> descriptionHpfFrequency [
 		label: 'hpfFrequency';
 		priority: 13;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -380,6 +389,7 @@ DelugeDefaultParams >> descriptionHpfResonance [
 		label: 'hpfResonance';
 		priority: 33;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -391,6 +401,7 @@ DelugeDefaultParams >> descriptionLfo1Rate [
 		label: 'lfo1Rate';
 		priority: 20;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -402,6 +413,7 @@ DelugeDefaultParams >> descriptionLfo2Rate [
 		label: 'lfo2Rate';
 		priority: 18;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -425,6 +437,7 @@ DelugeDefaultParams >> descriptionLpfFrequency [
 		label: 'lpfFrequency';
 		priority: 2;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -436,6 +449,7 @@ DelugeDefaultParams >> descriptionLpfResonance [
 		label: 'lpfResonance';
 		priority: 19;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -447,6 +461,7 @@ DelugeDefaultParams >> descriptionModFXDepth [
 		label: 'modFXDepth';
 		priority: 28;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -458,6 +473,7 @@ DelugeDefaultParams >> descriptionModFXFeedback [
 		label: 'modFXFeedback';
 		priority: 9;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -469,6 +485,7 @@ DelugeDefaultParams >> descriptionModFXOffset [
 		label: 'modFXOffset';
 		priority: 30;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -480,6 +497,7 @@ DelugeDefaultParams >> descriptionModFXRate [
 		label: 'modFXRate';
 		priority: 6;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -491,6 +509,7 @@ DelugeDefaultParams >> descriptionModulator1Amount [
 		label: 'modulator1Amount';
 		priority: 29;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -502,6 +521,7 @@ DelugeDefaultParams >> descriptionModulator1Feedback [
 		label: 'modulator1Feedback';
 		priority: 17;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -513,6 +533,7 @@ DelugeDefaultParams >> descriptionModulator2Amount [
 		label: 'modulator2Amount';
 		priority: 7;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -524,6 +545,7 @@ DelugeDefaultParams >> descriptionModulator2Feedback [
 		label: 'modulator2Feedback';
 		priority: 22;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -535,6 +557,7 @@ DelugeDefaultParams >> descriptionNoiseVolume [
 		label: 'noiseVolume';
 		priority: 23;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -546,6 +569,7 @@ DelugeDefaultParams >> descriptionOscAPitchAdjust [
 		label: 'oscAPitchAdjust';
 		priority: 33;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -557,6 +581,7 @@ DelugeDefaultParams >> descriptionOscAPulseWidth [
 		label: 'oscAPulseWidth';
 		priority: 16;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -568,6 +593,7 @@ DelugeDefaultParams >> descriptionOscAVolume [
 		label: 'oscAVolume';
 		priority: 35;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -579,6 +605,7 @@ DelugeDefaultParams >> descriptionOscBPitchAdjust [
 		label: 'oscBPitchAdjust';
 		priority: 10;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -590,6 +617,7 @@ DelugeDefaultParams >> descriptionOscBPulseWidth [
 		label: 'oscBPulseWidth';
 		priority: 10;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -601,6 +629,7 @@ DelugeDefaultParams >> descriptionOscBVolume [
 		label: 'oscBVolume';
 		priority: 12;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -612,6 +641,7 @@ DelugeDefaultParams >> descriptionPan [
 		label: 'pan';
 		priority: 36;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -635,6 +665,7 @@ DelugeDefaultParams >> descriptionPortamento [
 		label: 'portamento';
 		priority: 32;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -646,6 +677,7 @@ DelugeDefaultParams >> descriptionReverbAmount [
 		label: 'reverbAmount';
 		priority: 8;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -657,6 +689,7 @@ DelugeDefaultParams >> descriptionSampleRateReduction [
 		label: 'sampleRateReduction';
 		priority: 21;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -668,6 +701,7 @@ DelugeDefaultParams >> descriptionStutterRate [
 		label: 'stutterRate';
 		priority: 4;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -679,6 +713,7 @@ DelugeDefaultParams >> descriptionVolume [
 		label: 'volume';
 		priority: 14;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 

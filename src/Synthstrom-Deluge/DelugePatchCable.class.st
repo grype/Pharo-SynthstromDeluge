@@ -469,6 +469,7 @@ DelugePatchCable >> descriptionAmount [
 		label: 'amount';
 		priority: 2;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -480,6 +481,7 @@ DelugePatchCable >> descriptionDestination [
 		label: 'destination';
 		priority: 1;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -491,6 +493,7 @@ DelugePatchCable >> descriptionRangeAdjustable [
 		label: 'rangeAdjustable';
 		priority: 4;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -502,6 +505,7 @@ DelugePatchCable >> descriptionSource [
 		label: 'source';
 		priority: 3;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 

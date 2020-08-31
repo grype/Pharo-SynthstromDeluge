@@ -42,6 +42,7 @@ DelugeCompressor >> descriptionAttack [
 		label: 'attack';
 		priority: 3;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -53,6 +54,7 @@ DelugeCompressor >> descriptionRelease [
 		label: 'release';
 		priority: 1;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 
@@ -64,6 +66,7 @@ DelugeCompressor >> descriptionSyncLevel [
 		label: 'syncLevel';
 		priority: 2;
 		beXmlElement;
+		beXmlAttribute;
 		yourself
 ]
 

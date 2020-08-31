@@ -158,6 +158,23 @@ DelugeObject >> allReferencedConstants [
 	^ results
 ]
 
+{ #category : #initialization }
+DelugeObject >> initialize [
+	super initialize.
+
+	(self magritteDescription children select: [ :each | 
+		 each isKindOf: MAToOneRelationDescription ]) do: [ :description | 
+		self
+			perform: description accessor writeSelector
+			with: description classes anyOne new ].
+
+	(self magritteDescription children select: [ :each | 
+		 each isKindOf: MAToManyRelationDescription ]) do: [ :description | 
+		self
+			perform: description accessor writeSelector
+			with: (OrderedCollection with: description classes anyOne new) ]
+]
+
 { #category : #writing }
 DelugeObject >> toFile: aFile [
 	| fileRef xml |
@@ -166,6 +183,7 @@ DelugeObject >> toFile: aFile [
 	xml := self magritteDescription toXml: self.
 	self class isContainer ifTrue: [ xml := self unwrapXMLString: xml ].
 	fileRef ifExists: [ fileRef delete ].
+	fileRef ensureCreateFile.
 	fileRef writeStream
 		nextPutAll: self class xmlHeader;
 		nextPut: Character lf;

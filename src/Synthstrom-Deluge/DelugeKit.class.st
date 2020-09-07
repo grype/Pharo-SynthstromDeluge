@@ -8,7 +8,9 @@ Class {
 		'modFXCurrentParam',
 		'modFXType',
 		'selectedDrumIndex',
-		'soundSources'
+		'soundSources',
+		'compressor',
+		'delay'
 	],
 	#classVars : [
 		'CurrentFilterTypeLpf',
@@ -59,6 +61,11 @@ DelugeKit >> = anObject [
 							  soundSources = anObject soundSources ] ] ] ] ] ]
 ]
 
+{ #category : #adding }
+DelugeKit >> addSoundSourceFromFile: aFile [
+	soundSources add: (DelugeSound fromFile: aFile asFileReference)
+]
+
 { #category : #configuring }
 DelugeKit >> beCurrentFilterTypeLpf [
 	currentFilterType := self class currentFilterTypeLpf
@@ -80,6 +87,16 @@ DelugeKit >> beModFXTypeFlanger [
 ]
 
 { #category : #accessing }
+DelugeKit >> compressor [
+	^ compressor
+]
+
+{ #category : #accessing }
+DelugeKit >> compressor: anObject [
+	compressor := anObject
+]
+
+{ #category : #accessing }
 DelugeKit >> currentFilterType [
 	^ currentFilterType
 ]
@@ -97,6 +114,28 @@ DelugeKit >> defaultParams [
 { #category : #accessing }
 DelugeKit >> defaultParams: anObject [
 	defaultParams := anObject
+]
+
+{ #category : #accessing }
+DelugeKit >> delay [
+	^ delay
+]
+
+{ #category : #accessing }
+DelugeKit >> delay: anObject [
+	delay := anObject
+]
+
+{ #category : #'magritte description' }
+DelugeKit >> descriptionCompressor [
+	<magritteDescription>
+	^ MAToOneRelationDescription new
+		accessor: #compressor;
+		label: 'compressor';
+		priority: 2;
+		classes: { DelugeCompressor };
+		beXmlInlineElement;
+		yourself
 ]
 
 { #category : #'magritte description' }
@@ -121,6 +160,18 @@ DelugeKit >> descriptionDefaultParams [
 		classes: { DelugeDefaultParams };
 		beXmlInlineElement;
 		yourself
+]
+
+{ #category : #'magritte description' }
+DelugeKit >> descriptionDelay [
+	<magritteDescription>
+	^ MAToOneRelationDescription new
+		  accessor: #delay;
+		  label: 'delay';
+		  priority: 2;
+		  classes: { DelugeDelay };
+		  beXmlInlineElement;
+		  yourself
 ]
 
 { #category : #'magritte description' }
@@ -191,6 +242,53 @@ DelugeKit >> hash [
 		  (defaultParams hash bitXor: (lpfMode hash bitXor:
 				    (modFXCurrentParam hash bitXor: (modFXType hash bitXor:
 						      (selectedDrumIndex hash bitXor: soundSources hash)))))
+]
+
+{ #category : #initialization }
+DelugeKit >> initialize [
+	super initialize.
+	self
+		beCurrentFilterTypeLpf;
+		beLpfMode24dB;
+		beModFXCurrentParamFeedback;
+		beModFXTypeFlanger;
+		compressor: (DelugeCompressor new
+				 syncLevel: 7;
+				 attack: 327244;
+				 release: 936;
+				 yourself);
+		soundSources: OrderedCollection new;
+		delay: (DelugeDelay new
+				 pingPong: 1;
+				 analog: 0;
+				 syncLevel: 8;
+				 yourself).
+	defaultParams := DelugeDefaultParams new
+		                 bitCrush: 1 / 2;
+		                 pan: 0;
+		                 delay: (DelugeDelay new
+				                  feedback: 1 / 2;
+				                  rate: 0;
+				                  yourself);
+		                 equalizer: DelugeEqualizer new;
+		                 hpf: (DelugeHpf new
+				                  frequency: 1 / 2;
+				                  resonance: 1 / 2;
+				                  yourself);
+		                 lpf: (DelugeLpf new
+				                  frequency: 2147483647 / 4294967296;
+				                  resonance: 1 / 2;
+				                  yourself);
+		                 modFXFeedback: 1 / 2;
+		                 modFXOffset: 0;
+		                 modFXRate: 7 / 8;
+		                 modFXDepth: 0;
+		                 reverbAmount: 1 / 2;
+		                 sampleRateReduction: 1 / 2;
+		                 stutterRate: 0;
+		                 volume: 222379213 / 1073741824;
+		                 sidechainCompressorShape: 1846835929 / 2147483648;
+		                 yourself
 ]
 
 { #category : #accessing }

@@ -64,6 +64,13 @@ DelugeHpf >> hash [
 	^ frequency hash bitXor: resonance hash
 ]
 
+{ #category : #initialization }
+DelugeHpf >> initialize [
+	super initialize.
+	frequency := 0.
+	resonance := 0
+]
+
 { #category : #accessing }
 DelugeHpf >> resonance [
 	^ resonance

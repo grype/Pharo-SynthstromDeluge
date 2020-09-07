@@ -104,6 +104,15 @@ DelugeEqualizer >> hash [
 			   (treble hash bitXor: trebleFrequency hash))
 ]
 
+{ #category : #initialization }
+DelugeEqualizer >> initialize [
+	super initialize.
+	bass := 0.
+	bassFrequency := 0.
+	treble := 0.
+	trebleFrequency := 0
+]
+
 { #category : #accessing }
 DelugeEqualizer >> treble [
 	^ treble

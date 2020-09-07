@@ -159,7 +159,7 @@ DelugeObject >> allReferencedConstants [
 ]
 
 { #category : #initialization }
-DelugeObject >> initialize [
+DelugeObject >> initializeOld [
 	super initialize.
 
 	(self magritteDescription children select: [ :each | 

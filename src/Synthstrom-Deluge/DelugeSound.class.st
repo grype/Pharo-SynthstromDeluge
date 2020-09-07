@@ -27,13 +27,42 @@ Class {
 		'transpose'
 	],
 	#classVars : [
+		'LpfMode12dB',
 		'LpfMode24dB',
+		'LpfMode24dBDrive',
 		'MidiKnobsEmpty',
+		'ModFXTypeChorus',
+		'ModFXTypeFlanger',
 		'ModFXTypeNone',
-		'ModeSubtractive'
+		'ModFXTypePhaser',
+		'ModeFm',
+		'ModeRingmod',
+		'ModeSubtractive',
+		'PolyphonicAuto',
+		'PolyphonicLegato',
+		'PolyphonicMono',
+		'PolyphonicPoly'
 	],
 	#category : #'Synthstrom-Deluge-Core'
 }
+
+{ #category : #'instance creation' }
+DelugeSound class >> fromFile: aFilenameOrReference [
+	| file |
+
+	file := aFilenameOrReference asFileReference.
+	^ self new
+		  bePolyphonicAuto;
+		  beLpfMode24dB;
+		  beModeSubtractive;
+		  voicePriority: 1;
+		  name: file withoutExtension basename;
+		  osc1: (DelugeOsc1 fromFile: aFilenameOrReference);
+		  osc2: (DelugeOsc2 new
+				   beTypeSample;
+				   yourself);
+		  yourself
+]
 
 { #category : #accessing }
 DelugeSound class >> lpfMode12dB [
@@ -571,6 +600,123 @@ DelugeSound >> hash [
 																					                     (transpose hash bitXor:
 																						                      (unison hash bitXor:
 																							                       voicePriority hash)))))))))))))))))))))
+]
+
+{ #category : #initialization }
+DelugeSound >> initialize [
+	super initialize.
+	self
+		beLpfMode24dB;
+		beModFXTypeNone;
+		beModeSubtractive;
+		bePolyphonicAuto;
+		voicePriority: 1;
+		arpeggiator: (DelugeArpeggiator new
+				 beModeOff;
+				 numOctaves: 2;
+				 syncLevel: 7;
+				 yourself).
+
+	modKnobs := { 
+		            (DelugeModKnob new
+			             beControlsParamPan;
+			             yourself).
+		            (DelugeModKnob new
+			             beControlsParamVolumePostFX;
+			             yourself).
+		            (DelugeModKnob new
+			             beControlsParamLpfResonance;
+			             yourself).
+		            (DelugeModKnob new
+			             beControlsParamLpfFrequency;
+			             yourself).
+		            (DelugeModKnob new
+			             beControlsParamEnv1Release;
+			             yourself).
+		            (DelugeModKnob new
+			             beControlsParamEnv1Attack;
+			             yourself).
+		            (DelugeModKnob new
+			             beControlsParamDelayFeedback;
+			             yourself).
+		            (DelugeModKnob new
+			             beControlsParamDelayRate;
+			             yourself).
+		            (DelugeModKnob new
+			             beControlsParamReverbAmount;
+			             yourself).
+		            (DelugeModKnob new
+			             beControlsParamVolumePostReverbSend;
+			             bePatchAmountFromSourceLfo1;
+			             yourself).
+		            (DelugeModKnob new
+			             beControlsParamLfo1Rate;
+			             yourself).
+		            (DelugeModKnob new
+			             beControlsParamPitch;
+			             yourself).
+		            (DelugeModKnob new
+			             beControlsParamStutterRate;
+			             yourself).
+		            (DelugeModKnob new
+			             beControlsParamBitcrushAmount;
+			             yourself).
+		            (DelugeModKnob new
+			             beControlsParamSampleRateReduction;
+			             yourself) }.
+	defaultParams := DelugeDefaultParams new
+		                 arpeggiatorGate: 0;
+		                 arpeggiatorRate: 0;
+		                 bitCrush: 1 / 2;
+		                 carrier1Feedback: 1 / 2;
+		                 carrier2Feedback: 1 / 2;
+		                 compressorShape: 1846835929 / 2147483648;
+		                 delayFeedback: 1 / 2;
+		                 delayRate: 0;
+		                 envelope1: (DelugeEnvelope1 new
+				                  attack: 1 / 2;
+				                  decay: 966367637 / 1073741824;
+				                  release: 1 / 2;
+				                  sustain: 1073741801 / 2147483648;
+				                  yourself);
+		                 envelope2: (DelugeEnvelope2 new
+				                  attack: 966367637 / 1073741824;
+				                  decay: 966367637 / 1073741824;
+				                  release: 966367637 / 1073741824;
+				                  sustain: 4294967273 / 4294967296;
+				                  yourself);
+		                 equalizer: DelugeEqualizer new;
+		                 hpfFrequency: 1 / 2;
+		                 hpfResonance: 1 / 2;
+		                 lfo1Rate: 214748351 / 2147483648;
+		                 lfo2Rate: 0;
+		                 lpfFrequency: 2147483647 / 4294967296;
+		                 lpfResonance: 1 / 2;
+		                 modFXDepth: 0;
+		                 modFXFeedback: 0;
+		                 modFXOffset: 0;
+		                 modFXRate: 0;
+		                 modulator1Amount: 1 / 2;
+		                 modulator1Feedback: 1 / 2;
+		                 modulator2Amount: 1 / 2;
+		                 modulator2Feedback: 1 / 2;
+		                 noiseVolume: 1 / 2;
+		                 oscAPulseWidth: 0;
+		                 oscAVolume: 2147483647 / 4294967296;
+		                 oscBPulseWidth: 0;
+		                 oscBVolume: 1 / 2;
+		                 pan: 0;
+		                 patchCables: { (DelugePatchCable new
+				                  beSourceVelocity;
+				                  beDestinationVolume;
+				                  amount: 134217725 / 536870912;
+				                  yourself) };
+		                 portamento: 1 / 2;
+		                 reverbAmount: 1 / 2;
+		                 sampleRateReduction: 1 / 2;
+		                 stutterRate: 0;
+		                 volume: 161061269 / 536870912;
+		                 yourself
 ]
 
 { #category : #accessing }

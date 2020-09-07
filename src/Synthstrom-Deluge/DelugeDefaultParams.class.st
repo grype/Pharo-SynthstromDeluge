@@ -43,7 +43,8 @@ Class {
 		'stutterRate',
 		'volume',
 		'oscAPitchAdjust',
-		'oscBPitchAdjust'
+		'oscBPitchAdjust',
+		'sidechainCompressorShape'
 	],
 	#category : #'Synthstrom-Deluge-Core'
 }
@@ -648,7 +649,7 @@ DelugeDefaultParams >> descriptionPan [
 { #category : #'magritte description' }
 DelugeDefaultParams >> descriptionPatchCables [
 	<magritteDescription>
-	^ MAToOneRelationDescription new
+	^ MAToManyRelationDescription new
 		accessor: #patchCables;
 		label: 'patchCables';
 		priority: 37;
@@ -687,6 +688,18 @@ DelugeDefaultParams >> descriptionSampleRateReduction [
 	^ DelugeHexDescription new
 		accessor: #sampleRateReduction;
 		label: 'sampleRateReduction';
+		priority: 21;
+		beXmlElement;
+		beXmlAttribute;
+		yourself
+]
+
+{ #category : #'magritte description' }
+DelugeDefaultParams >> descriptionSidechainCompressorShape [ 
+	<magritteDescription>
+	^ DelugeHexDescription new
+		accessor: #sidechainCompressorShape;
+		label: 'sidechainCompressorShape';
 		priority: 21;
 		beXmlElement;
 		beXmlAttribute;
@@ -1103,6 +1116,16 @@ DelugeDefaultParams >> sampleRateReduction [
 { #category : #accessing }
 DelugeDefaultParams >> sampleRateReduction: anObject [
 	sampleRateReduction := anObject
+]
+
+{ #category : #accessing }
+DelugeDefaultParams >> sidechainCompressorShape [
+	^ sidechainCompressorShape
+]
+
+{ #category : #accessing }
+DelugeDefaultParams >> sidechainCompressorShape: anObject [
+	sidechainCompressorShape := anObject
 ]
 
 { #category : #accessing }

@@ -18,6 +18,9 @@ BaselineOfSynthstromDeluge >> baseline: spec [
 			baseline: 'Mocketry'
 			with: [ spec repository: 'github://dionisiydk/Mocketry' ].
 		spec
+			baseline: 'AkaiMPC'
+			with: [ spec repository: 'github://grype/Pharo-Akai-MPC' ].
+		spec
 			package: 'Synthstrom-Deluge'
 			with: [ spec requires: #( 'XMLMAGenerator' 'ObjectTravel' ) ].
 		spec
@@ -26,5 +29,6 @@ BaselineOfSynthstromDeluge >> baseline: spec [
 		spec
 			group: 'Core' with: #( 'Synthstrom-Deluge' );
 			group: 'CoreTests' with: #( 'Synthstrom-Deluge-Tests' );
-			group: 'default' with: #( 'Synthstrom-Deluge' ) ]
+			group: 'Akai' with: #( 'Core' 'AkaiMPC' );
+			group: 'default' with: #( 'Core' ) ]
 ]

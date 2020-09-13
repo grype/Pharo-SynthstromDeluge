@@ -19,10 +19,22 @@ kit := DelugeSynthContainer fromFile: '/Volumes/NO NAME/KITS/MYKIT.XML' asFileRe
 kit toFile: '/Volumes/NO NAME/KITS/MYKIT 2.XML' asFileReference.
 ```
 
-Creating kits from AKAI PGM files:
+## Creating kits from AKAI PGM files
+
+Be sure to load the 'Akai' configuration:
+
+```smalltalk
+Metacello new 
+  baseline: 'SynthstromDeluge'; 
+  repository: 'github://grype/Pharo-SynthstromDeluge'; 
+  load: 'Akai'.
+```
+
+Then,
 
 ```smalltalk
 kit := DelugeKitContainer fromAkaiProgramFile: '/path/to/AKAI/ALIEN_DRUMS/ALIEN_DRUMS1.PGM' asFile.
 kit exportTo: '/Volumes/NO NAME/KITS' copyingSamplesFrom: each parent.
 ```
+
 Note: the above assumes that samples and PGM files all live in the same directory. If that's not the case - adjust the argument to `copyingSampleFrom:`...

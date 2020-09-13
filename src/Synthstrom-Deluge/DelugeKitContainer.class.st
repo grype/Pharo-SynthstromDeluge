@@ -1,3 +1,14 @@
+"
+I am a KIT container.
+
+Do not confuse me with ==DelugeKit==. I describe that object and other meta information as it is stored in .XML files for Deluge Kits. I help with reading and writing those XML files.
+
+Example:
+
+(DelugeKitContainer fromFile: '/path/to/KIT001.XML') inspect.
+
+
+"
 Class {
 	#name : #DelugeKitContainer,
 	#superclass : #DelugeObject,

@@ -16,7 +16,7 @@ Reading must be done using one of the container files:
 
 	kit := DelugeKitContainer fromFile: '/path/tp/KIT000.XML'.
 
-#Writing container types back to XML file:
+# Writing container types back to XML file:
 
 	kit toFile: '/path/to/KIT001.XML'.
 

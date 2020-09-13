@@ -655,6 +655,8 @@ DelugeDefaultParams >> descriptionPatchCables [
 		priority: 37;
 		classes: { DelugePatchCables };
 		beXmlInlineElement;
+		beOptional;
+		default: nil;
 		yourself
 ]
 

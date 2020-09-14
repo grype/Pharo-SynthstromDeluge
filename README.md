@@ -57,16 +57,17 @@ The source code represents the XML structure, in which Deluge stores instrument 
 To (re-)generate the source code you need an XML file from which to model classes. Then,
 
 ```smalltalk
-DelugeObject generateClassesFromFile: files first containerNodeName: DelugeKitContainer xmlElementName.
+file := '/Volumes/NO NAME/KITS/KIT0001.XML' asFileReference.
+DelugeObject generateClassesFromFile: file containerNodeName: DelugeKitContainer xmlElementName.
 ```
 
-If you're generating a new type of object, say a synth, represented :
+If you're generating a new type of object, say a synth:
 
 ```smalltalk
 DelugeObject generateClassesFromFile: files first containerNodeName: 'synthContainer'.
 ```
 
-Notice that the containedNodeName argument will determine the class name - we're not actually looking for a tag with that name.
+Notice that the `containerNodeName` argument will determine the class name - we're not actually looking for a tag with that name.
 
 The above snippet will essentially read the XML file, create classes for XML tags (i.e. <kit> translates to DelugeKit), capturing its properties and children, and create necessary magritte description methods to facilitate serialization.
   
@@ -80,4 +81,6 @@ objects := fileReferences collect: [ :each |
 DelugeObject generateConstantsAccessorsFromReferences: (objects flatCollect: #allReferencedConstants).
 ```
 
-**Note** XML structure varries b/w instruments (kits, synths, songs) - Some finessing will be required when generating new classes. Be sure not to break existing class definitions, methods, especially those with magritte descriptions.
+That will prompt to create various methods that configure properties of an object using found strings - i.e. `beLpfMode24dB'...
+
+**Note** XML structure varries b/w instruments (kits, synths, songs) - Some finessing will be required when generating new classes. Be sure not to break existing class definitions, methods, especially those with magritte descriptions. In fact, when introducing a new model, it may require tweaking the magritte description files and initialization methods for some classes. In the latter case, follow DelugeKit>>#initialize. It's always best to leave classes that represent inner nodes w/o customized initialization, and configure their instances from the initialization of parent of container node's class (i.e. DelugeKit>>#initialize creates and configures DelugeDefaultParams instance.

@@ -43,8 +43,9 @@ Metacello new
 Then,
 
 ```smalltalk
-kit := DelugeKitContainer fromAkaiProgramFile: '/path/to/AKAI/ALIEN_DRUMS/ALIEN_DRUMS1.PGM' asFile.
-kit exportTo: '/Volumes/NO NAME/KITS' copyingSamplesFrom: each parent.
+pgm := '/path/to/AKAI/ALIEN_DRUMS/ALIEN_DRUMS1.PGM' asFile.
+kit := DelugeKitContainer fromAkaiProgramFile: pgm.
+kit exportTo: '/Volumes/NO NAME/KITS' copyingSamplesFrom: pgm parent.
 ```
 
 Note: the above assumes that samples and PGM files all live in the same directory. If that's not the case - adjust the argument to `copyingSampleFrom:`...
